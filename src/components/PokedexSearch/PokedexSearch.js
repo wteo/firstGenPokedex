@@ -24,7 +24,7 @@ function PokedexSearch() {
     setEnteredPokemonName(event.target.value);
   }
 
-  const searchHandler = (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
     const filteredSearch = {
       type1: enteredTypeOne,
@@ -37,27 +37,25 @@ function PokedexSearch() {
     setEnteredPokemonName('');
   };
 
-  const submitHandler = () => {
-
-  };
 
   useEffect(() => {
     if (enteredTypeOne === enteredTypeTwo && enteredTypeOne !== types[0] && enteredTypeTwo !== types[0]) {
-      alert('The value of secondary type cannot be the same as the primary type!');
+      alert('Second type cannot be the same as the first type!');
       setEnteredTypeTwo(types[0]);
       return;
     }
   }, [enteredTypeOne, enteredTypeTwo]);
 
+
   return (
     <Card>
       <form onSubmit={submitHandler}>
-        <PokedexSearchOptions description='Type 1:' id='primaryType' onType={typeOneHandler} name={enteredTypeOne} value={enteredTypeOne}/>
-        <PokedexSearchOptions description='Type 2:' id='secondaryType' onType={typeTwoHandler} name={enteredTypeTwo} value={enteredTypeTwo}/>
+        <PokedexSearchOptions description='First Type:' id='firstType' onType={typeOneHandler} name={enteredTypeOne} value={enteredTypeOne}/>
+        <PokedexSearchOptions description='Second Type:' id='secondType' onType={typeTwoHandler} name={enteredTypeTwo} value={enteredTypeTwo}/>
         <label>Species name:</label>
         <input type='text' placeholder='Enter a pokemon species' onChange={nameHandler} name={enteredPokemonName} value={enteredPokemonName}/>
         <br />
-        <button onClick={searchHandler}>Search</button>
+        <button>Search</button>
       </form>
     </Card>
   );

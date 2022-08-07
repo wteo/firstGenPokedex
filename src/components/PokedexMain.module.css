@@ -30,7 +30,6 @@
 .pokemonName {
     text-align: center;
     color: var(--text-color-pokemon-name);
-    font-size: 300%;
     font-family: 'Common Pixel', sans-serif;                                                
     margin: auto 0;
     padding-bottom: 5%;
