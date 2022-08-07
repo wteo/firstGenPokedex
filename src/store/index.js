@@ -2,13 +2,13 @@ import { createStore } from '@reduxjs/toolkit';
 
 const defaultState = {
     url: `https://pokeapi.co/api/v2/pokemon/1`,
-    count: 1,
-    imageLink: '',
-    speciesName: '',
-    type1: 'Grass',
-    type2: 'Poison',
-    height: '60',
-    weight: '60'
+    count: 0,
+    imageLink: 'Image not found',
+    speciesName: '???',
+    type1: '???',
+    type2: '???',
+    height: '???',
+    weight: '???'
 };
 
 export const fetchData = async(setState, link) => {
@@ -20,7 +20,7 @@ export const fetchData = async(setState, link) => {
         imageLink: data.sprites.front_default,
         speciesName: data.species.name,
         type1: data.types[0].type.name,
-        // type2: data.types[1].type.name === 'undefined' ? 'None' : data.types[1].type.name,
+        type2: data.types[1]?.type.name,
         height: data.height,
         weight: data.weight
     });

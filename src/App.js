@@ -12,10 +12,10 @@ import { fetchData, ACTION_TYPES } from './store/index';
 
 function App() {
 
-  // Fetching pokemon data 
+  // Fetching pokemon data to feed into the Pokedex 
   const [enteredPokemonData, setEnteredPokemonData] = useState({});
 
-  const { imageLink, speciesName } = enteredPokemonData;
+  const { imageLink, speciesName, type1, type2, height, weight } = enteredPokemonData;
 
   const count = useSelector(state => state.count);
   const url = useSelector(state => state.url);
@@ -25,7 +25,7 @@ function App() {
         fetchData(setEnteredPokemonData, url);
     }, [url]);
 
-    // Handling pokemon data as user scroll either left or right of the pokedex
+    // State to update new pokemon as user scroll left or right of the pokedex
     const incrementHandler = () => {
         dispatch({ type: ACTION_TYPES.increment, payload: 1 });
     };
@@ -35,14 +35,16 @@ function App() {
     };
 
   
-  // Hide/unhide data/search buttons
+  // State to hide or show pokemon data
   const [dataButtonIsClicked, setDataButtonIsClicked] = useState(false);
-  const [searchButtonIsClicked, setSearchButtonIsClicked] = useState(false);
 
   const dataButtonHandler = () => {
     setSearchButtonIsClicked(false);
     setDataButtonIsClicked((dataButtonIsClicked) => !dataButtonIsClicked);
   }
+
+  // State to hide or show search menu
+  const [searchButtonIsClicked, setSearchButtonIsClicked] = useState(false);
 
   const searchButtonHandler = () => {
     setDataButtonIsClicked(false);
@@ -62,7 +64,7 @@ function App() {
         onDecrement={decrementHandler}
       />
       <div className={styles.dropDownNavigation}>
-        {dataButtonIsClicked && <PokedexData />}
+        {dataButtonIsClicked && <PokedexData type1={type1} type2={type2} height={height} weight={weight} />}
         {searchButtonIsClicked && <PokedexSearch />}
       </div>
     </div>

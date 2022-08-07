@@ -1,23 +1,20 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 // import styles from './PokedexData.module.css';
 import Card from '../UI/Card';
 
-function PokedexData() {
+function PokedexData(props) {
 
-    const type1 = useSelector(state => state.type1);
-    const type2 = useSelector(state => state.type2);
-    const height = useSelector(state => state.height);
-    const weight = useSelector(state => state.weight);
+  const hasOnlyOneType = <p>Type(s): {props.type1}</p>;
+  const hasTwoTypes = <p>Type(s): {props.type1} / {props.type2}</p>;
 
-    return (
-        <Card>
-          <p>Type(s): {type1} / {type2} </p>
-          <p>Height: {height}</p>
-          <p>Weight: {weight} </p>
-        </Card>
-    );
+  return (
+    <Card>
+      {props.type2 === undefined ? hasOnlyOneType : hasTwoTypes }
+      <p>Height: {`${(props.height / 10).toFixed(1)}`} M</p>
+      <p>Weight: {`${(props.weight / 10).toFixed(1)}`} Kg</p>
+    </Card>
+  );
 }
 
 export default PokedexData;
