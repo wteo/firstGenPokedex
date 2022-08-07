@@ -2,19 +2,19 @@ import React from 'react';
 
 import styles from './App.module.css';
 
+import PokedexTitle from './components/PokedexTitle';
+import PokedexMain from './components/PokedexMain';
+import PokedexData from './components/PodedexData';
+import PokedexSearch from './components/PokedexSearch/PokedexSearch';
+
 function App() {
   return (
     <div className={styles.container}>
-      <div className={styles.pokedexTitle}>Pokedex</div>
-      <div className={styles.pokedexImage}>
-        <button>Left</button>
-        <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png' alt='ditto'/>
-        <button>Right</button>
-        <h1>Ditto</h1>
-      </div>
-      <div>
-        <div className={styles.pokedexData}>Data</div>
-        <div className={styles.pokedexSearchi}>Search</div>
+      <PokedexTitle />
+      <PokedexMain />
+      <div className={styles.dropDownNavigation}>
+        <PokedexData />
+        <PokedexSearch />
       </div>
     </div>
   );

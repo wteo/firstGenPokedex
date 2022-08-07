@@ -1,0 +1,15 @@
+* {
+    --pokedex-main-color: rgb(200, 0, 0);
+    --pokedex-border-color: rgb(104, 0, 0);
+    --background-screen-color: rgb(86, 86, 86);
+    --buttons-background-color: rgb(247, 210, 0);
+    --text-color-pokemon-name: rgb(255, 255, 255);
+}
+
+body {
+    background-color: rgb(255, 250, 193);
+}
+
+button {
+    border: 0px;
+}
