@@ -6,7 +6,8 @@ import leftArrow from '../icons/left-arrow.png';
 import question from '../icons/question.png';
 import search from '../icons/search.png';
 
-function PokedexMain() {
+function PokedexMain(props) {
+    
     return (
         <div className={styles.pokedexMain}>
             <div className={styles.pokedexImage}>
@@ -22,10 +23,10 @@ function PokedexMain() {
                 <div></div>
             </div>
             <div className={styles.pokedexButtons}>
-                <button>
+                <button onClick={props.onButtonData}>
                     <img src={question} alt='questionButton' />
                 </button>
-                <button>
+                <button onClick={props.onButtonSearch}>
                     <img src={search} alt='searchButton' />
                 </button>
             </div>

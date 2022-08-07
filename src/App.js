@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './App.module.css';
 
@@ -8,13 +8,29 @@ import PokedexData from './components/PodedexData';
 import PokedexSearch from './components/PokedexSearch/PokedexSearch';
 
 function App() {
+
+  const [dataButtonIsClicked, setDataButtonIsClicked] = useState(false);
+  const [searchButtonIsClicked, setSearchButtonIsClicked] = useState(false);
+
+  const dataButtonHandler = () => {
+    setSearchButtonIsClicked(false);
+    setDataButtonIsClicked((dataButtonIsClicked) => !dataButtonIsClicked);
+  }
+
+  const searchButtonHandler = () => {
+    setDataButtonIsClicked(false);
+    setSearchButtonIsClicked((searchButtonIsClicked) => !searchButtonIsClicked);
+  }
+
+  
+
   return (
     <div className={styles.container}>
       <PokedexTitle />
-      <PokedexMain />
+      <PokedexMain onButtonData={dataButtonHandler} onButtonSearch={searchButtonHandler}/>
       <div className={styles.dropDownNavigation}>
-        <PokedexData />
-        <PokedexSearch />
+        {dataButtonIsClicked && <PokedexData />}
+        {searchButtonIsClicked && <PokedexSearch />}
       </div>
     </div>
   );
