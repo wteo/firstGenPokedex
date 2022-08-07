@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React  from 'react';
 
 import styles from './PokedexMain.module.css';
 import rightArrow from '../icons/right-arrow.png';
@@ -7,40 +6,16 @@ import leftArrow from '../icons/left-arrow.png';
 import question from '../icons/question.png';
 import search from '../icons/search.png';
 
-import { fetchData, ACTION_TYPES } from '../store/index';
-
-
 function PokedexMain(props) {
 
-    const [enteredPokemonData, setEnteredPokemonData] = useState({});
-
-    const {imageLink, speciesName} = enteredPokemonData;
-
-    // value of count should not go past 151 as there are only 151 species in the first generation
-    const count = useSelector(state => state.count);
-    const url = useSelector(state => state.url);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        fetchData(setEnteredPokemonData, url);
-    }, [url]);
-
-    const incrementHandler = () => {
-        dispatch({ type: ACTION_TYPES.increment, payload: 1 });
-    };
-
-    const decrementHandler = () => {
-        dispatch({ type: ACTION_TYPES.decrement, payload: 1 });
-    };
-
     const leftArrowButton = (
-        <button className={styles.leftButton} onClick={decrementHandler}>
+        <button className={styles.leftButton} onClick={props.onDecrement}>
             <img src={leftArrow} alt='leftArrow'/>
         </button>
     );
 
     const rightArrowButton = (
-        <button className={styles.rightButton} onClick={incrementHandler}>
+        <button className={styles.rightButton} onClick={props.onIncrement}>
             <img src={rightArrow} alt='rightArrow'/>
         </button>
     );
@@ -48,11 +23,11 @@ function PokedexMain(props) {
     return (
         <div className={styles.pokedexMain}>
             <div className={styles.pokedexImage}>
-                { count > 1 ? leftArrowButton : <div></div> }
-                <img src={imageLink} alt={speciesName} />
-                { count < 151 ? rightArrowButton : <div></div> }
+                { props.count > 1 ? leftArrowButton : <div></div> }
+                <img src={props.imageLink} alt={props.speciesName} />
+                { props.count < 151 ? rightArrowButton : <div></div> }
                 <div></div>
-                <h3 className={styles.pokemonName}>{speciesName}</h3>
+                <h3 className={styles.pokemonName}>{props.speciesName}</h3>
                 <div></div>
             </div>
             <div className={styles.pokedexButtons}>
