@@ -8,10 +8,11 @@
     --results-border-color: rgb(2, 2, 177);
     --main-text-color: rgb(2, 2, 177);
     --card-background-color: rgb(4, 4, 139, 0.2);
+    --border-background-color: rgb(189, 189, 189);
 }
 
 body {
-    background-color: rgb(255, 250, 193);
+    background-color: rgb(255, 255, 255);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: var(--main-text-color);
 }
