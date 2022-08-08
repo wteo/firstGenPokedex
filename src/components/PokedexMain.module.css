@@ -22,12 +22,12 @@
 
 .leftButton, .rightButton {
     height: 100%;
-    margin-top: 50%;
+    margin-top: 30%;
     background-color: var(--background-screen-color);
 }
 
 .leftButton:hover, .rightButton:hover {
-    margin-top: 30%;
+    margin-top: 10%;
     cursor: pointer;
     transition: margin-top 0.5s;
 }
