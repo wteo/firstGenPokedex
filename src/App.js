@@ -14,6 +14,7 @@ function App() {
 
   // Fetching pokemon data to feed into the Pokedex 
   const [enteredPokemonData, setEnteredPokemonData] = useState({});
+  const [isSearched, setIsSearched] = useState(false);
 
   const { imageLink, speciesName, type1, type2, height, weight } = enteredPokemonData;
 
@@ -40,6 +41,8 @@ function App() {
 
   const dataButtonHandler = () => {
     setSearchButtonIsClicked(false);
+    setIsSearched(false);
+    setEnteredResults([]);
     setDataButtonIsClicked((dataButtonIsClicked) => !dataButtonIsClicked);
   }
 
@@ -48,12 +51,16 @@ function App() {
 
   const searchButtonHandler = () => {
     setDataButtonIsClicked(false);
+    setIsSearched(false);
+    setEnteredResults([]);
     setSearchButtonIsClicked((searchButtonIsClicked) => !searchButtonIsClicked);
   }
 
   // States to handle filtered search
-  const enteredSearchHandler = async (searchedValue) => {
+  const [enteredResults, setEnteredResults] = useState([]);
+  const resultsArr = [];
 
+  const enteredSearchHandler = async (searchedValue) => {
     const enteredSearchValues = {
       type1       : searchedValue.type1,
       type2       : searchedValue.type2,
@@ -61,24 +68,24 @@ function App() {
     }
 
     let i = 1;
-    const searchedArr = [];
 
     while (i <= 151) {
       const fullURL = `https://pokeapi.co/api/v2/pokemon/${i}`
       const response = await fetch(fullURL);
       const data = await response.json();
       const speciesNameResult = data.name;
+      const imageLink = data.sprites.front_default;
       const type1Result = data.types[0].type.name;
       const type2Result = data.types[1]?.type.name;
       i++;
 
       if (enteredSearchValues.speciesName !== '' && speciesNameResult.includes(enteredSearchValues.speciesName.toLowerCase().trim())) {
-        searchedArr.push([speciesNameResult, type1Result, type2Result]);
+        resultsArr.push({speciesNameResult, imageLink});
       } else if (enteredSearchValues.speciesName === '') {
         if (enteredSearchValues.type1 === type1Result && enteredSearchValues.type2 === type2Result) {
-          searchedArr.push([speciesNameResult, type1Result, type2Result]);
+          resultsArr.push({speciesNameResult, imageLink});
         } else if ((enteredSearchValues.type1 === type1Result || enteredSearchValues.type1 === type2Result) && enteredSearchValues.type2 === 'None') {
-          searchedArr.push([speciesNameResult, type1Result, type2Result]);
+          resultsArr.push({speciesNameResult, imageLink});
         } else if (enteredSearchValues.type1 === 'None') {
           alert ('You must either first enter a value for first type or enter a value for species name.');
           return;
@@ -86,11 +93,12 @@ function App() {
       }
     }
     
-    if (searchedArr.length > 0) {
-      console.log(searchedArr);
-      return searchedArr;
+    if (resultsArr.length > 0) {
+      setIsSearched(true);    
+      setEnteredResults(resultsArr);
     } else {
-      console.log('No Pokemon found!')
+      setIsSearched(true);
+      setEnteredResults('No Pokemon found. :-(');
     }
   };
 
@@ -109,6 +117,25 @@ function App() {
       <div className={styles.dropDownNavigation}>
         {dataButtonIsClicked && <PokedexData type1={type1} type2={type2} height={height} weight={weight} />}
         {searchButtonIsClicked && <PokedexSearch onSearch={enteredSearchHandler}/>}
+        {isSearched && enteredResults !== 'No Pokemon found. :-(' ?
+          (
+            <>
+              <h3 className={styles.resultTitle}>Result(s):</h3>
+              <div className={styles.resultsContainer}>
+                {
+                  enteredResults.map(result => (
+                    <div className={styles.result} key={result.speciesNameResult}>
+                      <img src={result.imageLink} alt={result.speciesNameResult}/>
+                      <p>{result.speciesNameResult}</p>
+                    </div>
+                    )
+                  )
+                }
+              </div>
+            </>
+          ) 
+          : <p>{enteredResults}</p>
+        }
       </div>
     </div>
   );

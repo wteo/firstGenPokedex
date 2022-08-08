@@ -3,3 +3,38 @@
     flex-direction: column;
     padding: 10% 15%;
 }
+
+.resultTitle {
+    padding-bottom: 5%;
+    display: block;
+}
+
+.resultsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 3%;
+    column-gap: 3%;
+}
+
+.result {
+    border: 1px solid black;
+}
+
+.result:hover {
+    background-color: aliceblue;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+
+.result img {
+    width: 100%;
+}
+
+.result p {
+    margin: auto 0;
+    padding: auto 0;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 75%;
+}
