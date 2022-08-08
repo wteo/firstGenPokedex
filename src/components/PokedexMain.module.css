@@ -30,7 +30,8 @@
 .pokemonName {
     text-align: center;
     color: var(--text-color-pokemon-name);
-    font-family: 'Common Pixel', sans-serif;                                                
+    font-family: 'Common Pixel', sans-serif;
+    text-transform: capitalize;                                                
     margin: auto 0;
     padding-bottom: 5%;
 }

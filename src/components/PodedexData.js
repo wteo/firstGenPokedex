@@ -1,12 +1,12 @@
 import React from 'react';
 
-// import styles from './PokedexData.module.css';
+import styles from './PokedexData.module.css';
 import Card from '../UI/Card';
 
 function PokedexData(props) {
 
-  const hasOnlyOneType = <p>Type(s): {props.type1}</p>;
-  const hasTwoTypes = <p>Type(s): {props.type1} / {props.type2}</p>;
+  const hasOnlyOneType = <p className={styles.type}>Type(s): {props.type1}</p>;
+  const hasTwoTypes = <p className={styles.type}>Type(s): {props.type1} / {props.type2}</p>;
 
   return (
     <Card>

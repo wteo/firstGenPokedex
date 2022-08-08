@@ -5,7 +5,7 @@ import PokedexSearchOptions, { types } from './PokemonSeachOptions';
 
 //import styles from './PokedexSearch.module.css';
 
-function PokedexSearch() {
+function PokedexSearch(props) {
 
   // const [isSearched, setIsSearched] = useState('');
   const [enteredTypeOne, setEnteredTypeOne] = useState(types[0]);
@@ -31,7 +31,7 @@ function PokedexSearch() {
       type2: enteredTypeTwo,
       speciesName: enteredPokemonName
     }
-    console.log(filteredSearch);
+    props.onSearch(filteredSearch);
     setEnteredTypeOne(types[0]);
     setEnteredTypeTwo(types[0]);
     setEnteredPokemonName('');
@@ -50,10 +50,30 @@ function PokedexSearch() {
   return (
     <Card>
       <form onSubmit={submitHandler}>
-        <PokedexSearchOptions description='First Type:' id='firstType' onType={typeOneHandler} name={enteredTypeOne} value={enteredTypeOne}/>
-        <PokedexSearchOptions description='Second Type:' id='secondType' onType={typeTwoHandler} name={enteredTypeTwo} value={enteredTypeTwo}/>
+        <p>Search Pokemon by their type(s).</p>
+        <PokedexSearchOptions 
+          description='First Type:' 
+          id='firstType' 
+          onType={typeOneHandler} 
+          name={enteredTypeOne} 
+          value={enteredTypeOne}
+        />
+        <PokedexSearchOptions 
+          description='Second Type:' 
+          id='secondType' 
+          onType={typeTwoHandler} 
+          name={enteredTypeTwo} 
+          value={enteredTypeTwo}
+        />
+        <p>Or by name.</p>
         <label>Species name:</label>
-        <input type='text' placeholder='Enter a pokemon species' onChange={nameHandler} name={enteredPokemonName} value={enteredPokemonName}/>
+        <input 
+          type='text' 
+          placeholder='Enter a pokemon species' 
+          onChange={nameHandler} 
+          name={enteredPokemonName} 
+          value={enteredPokemonName}
+        />
         <br />
         <button>Search</button>
       </form>
