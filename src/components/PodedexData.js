@@ -17,4 +17,4 @@ function PokedexData(props) {
   );
 }
 
-export default PokedexData;
+export default React.memo(PokedexData);

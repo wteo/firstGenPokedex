@@ -3,6 +3,7 @@ import { createStore } from '@reduxjs/toolkit';
 const defaultState = {
     url: `https://pokeapi.co/api/v2/pokemon/1`,
     count: 0,
+    id: 0,
     imageLink: 'Image not found',
     speciesName: '???',
     type1: '???',
@@ -17,6 +18,7 @@ export const fetchData = async(setState, link) => {
     console.log(data);
 
     setState({
+        id: data.id,
         imageLink: data.sprites.front_default,
         speciesName: data.species.name,
         type1: data.types[0].type.name,
@@ -28,7 +30,8 @@ export const fetchData = async(setState, link) => {
 
 export const ACTION_TYPES = {
     increment: 'INCREMENT',
-    decrement: 'DECREMENT'
+    decrement: 'DECREMENT',
+    selected: 'SELECTED'
 }
 
 
@@ -36,8 +39,9 @@ const pokemonReducer = (state = defaultState, action) => {
     if (action.type === ACTION_TYPES.increment) {
         return {
             ...state,
-            count: state.count + action.payload,
-            url: `https://pokeapi.co/api/v2/pokemon/${state.count + action.payload}`,
+            count: Number(state.count) + Number(action.payload),
+            url: `https://pokeapi.co/api/v2/pokemon/${Number(state.count) + Number(action.payload)}`,
+            id: state.id,
             type1: state.type1,
             type2: state.type2,
             height: state.height,
@@ -47,8 +51,22 @@ const pokemonReducer = (state = defaultState, action) => {
     if (action.type === ACTION_TYPES.decrement) {
         return {
             ...state,
-            count: state.count - action.payload,
-            url: `https://pokeapi.co/api/v2/pokemon/${state.count - action.payload}`,
+            count: Number(state.count) - Number(action.payload),
+            url: `https://pokeapi.co/api/v2/pokemon/${Number(state.count) - Number(action.payload)}`,
+            id: state.id,
+            type1: state.type1,
+            type2: state.type2,
+            height: state.height,
+            weight: state.weight
+        }
+    }
+    if (action.type === ACTION_TYPES.selected) {
+        return {
+            count: action.payload,
+            url: `https://pokeapi.co/api/v2/pokemon/${action.payload}`,
+            id: state.id,
+            imageLink: state.imageLink,
+            speciesName: state.speciesName,
             type1: state.type1,
             type2: state.type2,
             height: state.height,

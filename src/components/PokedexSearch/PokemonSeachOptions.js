@@ -11,7 +11,6 @@ function PokedexSearchOptions(props) {
             <select id={props.id} onChange={props.onType} name={props.name} value={props.value}>
                 {types.map((type) => <option value={type.toLowerCase()} key={type.toLowerCase()}>{type}</option>)}
             </select>
-            <br />
           </React.Fragment>
     );
 }

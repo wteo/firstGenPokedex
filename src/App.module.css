@@ -17,13 +17,16 @@
 }
 
 .result {
-    border: 1px solid black;
+    border: 2px solid var(--results-border-color);
+    border-radius: 5px;
 }
 
 .result:hover {
     background-color: aliceblue;
-    transition: background-color 0.5s;
+    box-shadow: 0px 0px 30px white;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.5s, font-weight 0.5s;
 }
 
 

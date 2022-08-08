@@ -3,11 +3,10 @@ import React, { useState, useEffect } from 'react';
 import Card from '../../UI/Card';
 import PokedexSearchOptions, { types } from './PokemonSeachOptions';
 
-//import styles from './PokedexSearch.module.css';
+import styles from './PokedexSearch.module.css';
 
 function PokedexSearch(props) {
 
-  // const [isSearched, setIsSearched] = useState('');
   const [enteredTypeOne, setEnteredTypeOne] = useState(types[0]);
   const [enteredTypeTwo, setEnteredTypeTwo] = useState(types[0]);
   const [enteredPokemonName, setEnteredPokemonName] = useState('');
@@ -51,20 +50,23 @@ function PokedexSearch(props) {
     <Card>
       <form onSubmit={submitHandler}>
         <p>Search Pokemon by their type(s).</p>
-        <PokedexSearchOptions 
-          description='First Type:' 
-          id='firstType' 
-          onType={typeOneHandler} 
-          name={enteredTypeOne} 
-          value={enteredTypeOne}
-        />
-        <PokedexSearchOptions 
-          description='Second Type:' 
-          id='secondType' 
-          onType={typeTwoHandler} 
-          name={enteredTypeTwo} 
-          value={enteredTypeTwo}
-        />
+        <div className={styles.typesList}>
+          <PokedexSearchOptions 
+            description='First Type:' 
+            id='firstType' 
+            onType={typeOneHandler} 
+            name={enteredTypeOne} 
+            value={enteredTypeOne}
+          />
+          <PokedexSearchOptions 
+            description='Second Type:' 
+            id='secondType' 
+            onType={typeTwoHandler} 
+            name={enteredTypeTwo} 
+            value={enteredTypeTwo}
+          />
+        </div>
+        
         <p>Or by name.</p>
         <label>Species name:</label>
         <input 
@@ -75,10 +77,10 @@ function PokedexSearch(props) {
           value={enteredPokemonName}
         />
         <br />
-        <button>Search</button>
+        <button className={styles.searchButton}>Search</button>
       </form>
     </Card>
   );
 }
 
-export default PokedexSearch;
+export default React.memo(PokedexSearch);

@@ -74,18 +74,19 @@ function App() {
       const response = await fetch(fullURL);
       const data = await response.json();
       const speciesNameResult = data.name;
+      const id = data.id;
       const imageLink = data.sprites.front_default;
       const type1Result = data.types[0].type.name;
       const type2Result = data.types[1]?.type.name;
       i++;
 
       if (enteredSearchValues.speciesName !== '' && speciesNameResult.includes(enteredSearchValues.speciesName.toLowerCase().trim())) {
-        resultsArr.push({speciesNameResult, imageLink});
+        resultsArr.push({speciesNameResult, imageLink, id});
       } else if (enteredSearchValues.speciesName === '') {
         if (enteredSearchValues.type1 === type1Result && enteredSearchValues.type2 === type2Result) {
-          resultsArr.push({speciesNameResult, imageLink});
+          resultsArr.push({speciesNameResult, imageLink, id});
         } else if ((enteredSearchValues.type1 === type1Result || enteredSearchValues.type1 === type2Result) && enteredSearchValues.type2 === 'None') {
-          resultsArr.push({speciesNameResult, imageLink});
+          resultsArr.push({speciesNameResult, imageLink, id});
         } else if (enteredSearchValues.type1 === 'None') {
           alert ('You must either first enter a value for first type or enter a value for species name.');
           return;
@@ -100,6 +101,12 @@ function App() {
       setIsSearched(true);
       setEnteredResults('No Pokemon found. :-(');
     }
+  };
+
+  const selectPokemonHandler = (event) => {
+    console.log(event.target.alt);
+    console.log(event.target.id);
+    dispatch({ type: ACTION_TYPES.selected, payload: event.target.id });
   };
 
   return (
@@ -124,8 +131,8 @@ function App() {
               <div className={styles.resultsContainer}>
                 {
                   enteredResults.map(result => (
-                    <div className={styles.result} key={result.speciesNameResult}>
-                      <img src={result.imageLink} alt={result.speciesNameResult}/>
+                    <div className={styles.result} key={result.id} onClick={selectPokemonHandler}>
+                      <img src={result.imageLink} id={result.id} alt={result.speciesNameResult}/>
                       <p>{result.speciesNameResult}</p>
                     </div>
                     )

@@ -42,4 +42,4 @@ function PokedexMain(props) {
     );
 }
 
-export default PokedexMain;
+export default React.memo(PokedexMain);
