@@ -4,13 +4,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './App.module.css';
 
 import PokedexTitle from './components/PokedexTitle';
-// import PokedexMain from './components/PokedexMain';
+import PokedexMain from './components/PokedexMain';
 // import PokedexData from './components/PodedexData';
 // import PokedexSearch from './components/PokedexSearch/PokedexSearch';
 
 import { fetchData, ACTION_TYPES } from './store/index';
 
-const PokedexMain = React.lazy(() => import('./components/PokedexMain'));
 const PokedexData = React.lazy(() => import('./components/PodedexData'));
 const PokedexSearch = React.lazy(() => import('./components/PokedexSearch/PokedexSearch'));
 
@@ -46,6 +45,7 @@ function App() {
   const dataButtonHandler = () => {
     setSearchButtonIsClicked(false);
     setIsSearched(false);
+    setIsFetchingData(false);
     setEnteredResults([]);
     setDataButtonIsClicked((dataButtonIsClicked) => !dataButtonIsClicked);
   }
@@ -56,15 +56,20 @@ function App() {
   const searchButtonHandler = () => {
     setDataButtonIsClicked(false);
     setIsSearched(false);
+    setIsFetchingData(false);
     setEnteredResults([]);
     setSearchButtonIsClicked((searchButtonIsClicked) => !searchButtonIsClicked);
   }
 
   // States to handle filtered search
   const [enteredResults, setEnteredResults] = useState([]);
+  const [isFetchingData, setIsFetchingData] = useState(null);
   const resultsArr = [];
 
   const enteredSearchHandler = async (searchedValue) => {
+
+    setIsFetchingData(true);
+
     const enteredSearchValues = {
       type1       : searchedValue.type1,
       type2       : searchedValue.type2,
@@ -93,6 +98,7 @@ function App() {
           resultsArr.push({speciesNameResult, imageLink, id});
         } else if (enteredSearchValues.type1 === 'None') {
           alert ('You must either first enter a value for first type or enter a value for species name.');
+          setIsFetchingData(false);
           return;
         } 
       }
@@ -101,9 +107,11 @@ function App() {
     if (resultsArr.length > 0) {
       setIsSearched(true);    
       setEnteredResults(resultsArr);
+      setIsFetchingData(false);
     } else {
       setIsSearched(true);
       setEnteredResults('No Pokemon found. :-(');
+      setIsFetchingData(false);
     }
   };
 
@@ -129,6 +137,7 @@ function App() {
         <div className={styles.dropDownNavigation}>
           {dataButtonIsClicked && <PokedexData type1={type1} type2={type2} height={height} weight={weight} />}
           {searchButtonIsClicked && <PokedexSearch onSearch={enteredSearchHandler}/>}
+          {isFetchingData && <p>Fetching Data...</p>}
           {isSearched && enteredResults !== 'No Pokemon found. :-(' ?
             (
               <>
