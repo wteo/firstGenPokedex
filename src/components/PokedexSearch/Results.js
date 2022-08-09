@@ -2,14 +2,14 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import styles from './Results.module.css';
-import { ACTION_TYPES } from '../../store/index';
+import { counterActions } from '../../store/index';
 
 function Results(props) {
 
     const dispatch = useDispatch();
 
     const selectPokemonHandler = (event) => {
-        dispatch({ type: ACTION_TYPES.selected, payload: event.target.id });
+        dispatch(counterActions.selected(Number(event.target.id)));
       };
 
     return (

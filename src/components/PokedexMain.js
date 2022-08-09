@@ -6,7 +6,7 @@ import rightArrow from '../icons/right-arrow.png';
 import leftArrow from '../icons/left-arrow.png';
 import question from '../icons/question.png';
 import search from '../icons/search.png';
-import { ACTION_TYPES } from '../store/index';
+import { counterActions } from '../store/index';
 
 function PokedexMain(props) {
 
@@ -15,11 +15,11 @@ function PokedexMain(props) {
 
     // State to update new pokemon as user scroll left or right of the pokedex
     const incrementHandler = () => {
-        dispatch({ type: ACTION_TYPES.increment, payload: 1 });
+        dispatch(counterActions.increment());
     };
 
     const decrementHandler = () => {
-        dispatch({ type: ACTION_TYPES.decrement, payload: 1 });
+        dispatch(counterActions.decrement());
     };
 
 

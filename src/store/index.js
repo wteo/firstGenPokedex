@@ -1,16 +1,34 @@
-import { createStore } from '@reduxjs/toolkit';
+import { createSlice, configureStore } from '@reduxjs/toolkit';
 
-const defaultState = {
-    url: `https://pokeapi.co/api/v2/pokemon/1`,
-    count: 0,
-    id: 0,
-    imageLink: 'Image not found',
-    speciesName: '???',
-    type1: '???',
-    type2: '???',
-    height: '???',
-    weight: '???'
-};
+const pokemonSlice = createSlice({
+    name: 'pokemon',
+    initialState: {
+        url: `https://pokeapi.co/api/v2/pokemon/1`,
+        count: 0,
+        id: 0,
+        imageLink: 'Image not found',
+        speciesName: '???',
+        type1: '???',
+        type2: '???',
+        height: '???',
+        weight: '???'
+    },
+    reducers: {
+        increment(state) {
+            state.count++;
+            state.url = `https://pokeapi.co/api/v2/pokemon/${state.count}`;
+        },
+        decrement(state) {
+            state.count--;
+            state.url = `https://pokeapi.co/api/v2/pokemon/${state.count}`;
+        },
+        selected(state, action) {
+            state.count = action.payload;
+            state.url = `https://pokeapi.co/api/v2/pokemon/${action.payload}`;
+        }
+    }
+});
+
 
 export const fetchData = async(setState, link) => {
     const response = await fetch(link);
@@ -27,54 +45,8 @@ export const fetchData = async(setState, link) => {
     });
 };
 
-export const ACTION_TYPES = {
-    increment: 'INCREMENT',
-    decrement: 'DECREMENT',
-    selected: 'SELECTED'
-}
+const store = configureStore({ reducer: pokemonSlice.reducer});
 
-
-const pokemonReducer = (state = defaultState, action) => {
-    if (action.type === ACTION_TYPES.increment) {
-        return {
-            ...state,
-            count: Number(state.count) + Number(action.payload),
-            url: `https://pokeapi.co/api/v2/pokemon/${Number(state.count) + Number(action.payload)}`,
-            id: state.id,
-            type1: state.type1,
-            type2: state.type2,
-            height: state.height,
-            weight: state.weight
-        }
-    }
-    if (action.type === ACTION_TYPES.decrement) {
-        return {
-            ...state,
-            count: Number(state.count) - Number(action.payload),
-            url: `https://pokeapi.co/api/v2/pokemon/${Number(state.count) - Number(action.payload)}`,
-            id: state.id,
-            type1: state.type1,
-            type2: state.type2,
-            height: state.height,
-            weight: state.weight
-        }
-    }
-    if (action.type === ACTION_TYPES.selected) {
-        return {
-            count: action.payload,
-            url: `https://pokeapi.co/api/v2/pokemon/${action.payload}`,
-            id: state.id,
-            imageLink: state.imageLink,
-            speciesName: state.speciesName,
-            type1: state.type1,
-            type2: state.type2,
-            height: state.height,
-            weight: state.weight
-        }
-    }
-    return state;
-}
-
-const store = createStore(pokemonReducer);
+export const counterActions = pokemonSlice.actions;
 
 export default store;
