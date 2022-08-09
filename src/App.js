@@ -1,17 +1,15 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import styles from './App.module.css';
 
 import PokedexTitle from './components/PokedexTitle';
 import PokedexMain from './components/PokedexMain';
-// import PokedexData from './components/PodedexData';
-// import PokedexSearch from './components/PokedexSearch/PokedexSearch';
-
-import { fetchData, ACTION_TYPES } from './store/index';
+import { fetchData } from './store/index';
 
 const PokedexData = React.lazy(() => import('./components/PodedexData'));
 const PokedexSearch = React.lazy(() => import('./components/PokedexSearch/PokedexSearch'));
+const Results = React.lazy(() => import('./components/PokedexSearch/Results'));
 
 function App() {
 
@@ -21,22 +19,11 @@ function App() {
 
   const { imageLink, speciesName, type1, type2, height, weight } = enteredPokemonData;
 
-  const count = useSelector(state => state.count);
   const url = useSelector(state => state.url);
-  const dispatch = useDispatch();
 
     useEffect(() => {
         fetchData(setEnteredPokemonData, url);
     }, [url]);
-
-    // State to update new pokemon as user scroll left or right of the pokedex
-    const incrementHandler = () => {
-        dispatch({ type: ACTION_TYPES.increment, payload: 1 });
-    };
-
-    const decrementHandler = () => {
-        dispatch({ type: ACTION_TYPES.decrement, payload: 1 });
-    };
 
   
   // State to hide or show pokemon data
@@ -115,12 +102,6 @@ function App() {
     }
   };
 
-  const selectPokemonHandler = (event) => {
-    console.log(event.target.alt);
-    console.log(event.target.id);
-    dispatch({ type: ACTION_TYPES.selected, payload: event.target.id });
-  };
-
   return (
     <div className={styles.container}>
       <PokedexTitle />
@@ -128,35 +109,14 @@ function App() {
         <PokedexMain 
           imageLink={imageLink} 
           speciesName={speciesName} 
-          count={count} 
           onButtonData={dataButtonHandler} 
           onButtonSearch={searchButtonHandler} 
-          onIncrement={incrementHandler} 
-          onDecrement={decrementHandler}
         />
         <div className={styles.dropDownNavigation}>
           {dataButtonIsClicked && <PokedexData type1={type1} type2={type2} height={height} weight={weight} />}
           {searchButtonIsClicked && <PokedexSearch onSearch={enteredSearchHandler}/>}
           {isFetchingData && <p>Fetching Data...</p>}
-          {isSearched && enteredResults !== 'No Pokemon found. :-(' ?
-            (
-              <>
-                <h3 className={styles.resultTitle}>Result(s):</h3>
-                <div className={styles.resultsContainer}>
-                  {
-                    enteredResults.map(result => (
-                      <div className={styles.result} key={result.id} onClick={selectPokemonHandler}>
-                        <img src={result.imageLink} id={result.id} alt={result.speciesNameResult}/>
-                        <p>{result.speciesNameResult}</p>
-                      </div>
-                      )
-                    )
-                  }
-                </div>
-              </>
-            ) 
-            : <p>{enteredResults}</p>
-          }
+          {isSearched && enteredResults !== 'No Pokemon found. :-(' ? <Results enteredResults={enteredResults}/> : <p>{enteredResults}</p>}
         </div>
       </Suspense>
       <footer>© Wendy Teo 2022</footer>

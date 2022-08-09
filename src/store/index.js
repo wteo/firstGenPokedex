@@ -15,7 +15,6 @@ const defaultState = {
 export const fetchData = async(setState, link) => {
     const response = await fetch(link);
     const data = await response.json();
-    console.log(data);
 
     setState({
         id: data.id,
