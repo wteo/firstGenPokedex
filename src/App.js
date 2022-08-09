@@ -5,7 +5,7 @@ import styles from './App.module.css';
 
 import PokedexTitle from './components/PokedexTitle';
 import PokedexMain from './components/PokedexMain';
-import { fetchData } from './store/index';
+import { fetchData } from './store/fetchData';
 
 const PokedexData = React.lazy(() => import('./components/PodedexData'));
 const PokedexSearch = React.lazy(() => import('./components/PokedexSearch/PokedexSearch'));
