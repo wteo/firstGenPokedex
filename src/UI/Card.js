@@ -1,12 +1,21 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 
-import styles from './Card.module.css';
+import './Card.css';
 
 function Card(props) {
     return (
-        <div className={styles.card}>
-            {props.children}
-        </div>
+        <CSSTransition 
+            in={props.onTransition}
+            timeout={120} 
+            classNames='slide'
+            mountOnEnter
+            unmountOnExit
+        >
+            <div className='card'>
+                {props.children}
+            </div>
+        </CSSTransition>
     );
 }
 

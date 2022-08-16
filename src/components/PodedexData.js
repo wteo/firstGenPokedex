@@ -9,7 +9,7 @@ function PokedexData(props) {
   const hasTwoTypes = <p className={styles.type}>Type(s): {props.type1} / {props.type2}</p>;
 
   return (
-    <Card>
+    <Card onTransition={props.onTransition}>
       {props.type2 === undefined ? hasOnlyOneType : hasTwoTypes }
       <p>Height: {`${(props.height / 10).toFixed(1)}`} M</p>
       <p>Weight: {`${(props.weight / 10).toFixed(1)}`} Kg</p>

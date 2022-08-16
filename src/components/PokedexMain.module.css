@@ -29,7 +29,7 @@
 .leftButton:hover, .rightButton:hover {
     margin-top: 10%;
     cursor: pointer;
-    transition: margin-top 0.5s;
+    transition: margin-top 0.25s;
 }
 
 .pokemonName {

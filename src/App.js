@@ -5,10 +5,10 @@ import styles from './App.module.css';
 
 import PokedexTitle from './components/PokedexTitle';
 import PokedexMain from './components/PokedexMain';
+import PokedexData from './components/PodedexData';
+import PokedexSearch from './components/PokedexSearch/PokedexSearch';
 import { fetchData } from './store/fetchData';
 
-const PokedexData = React.lazy(() => import('./components/PodedexData'));
-const PokedexSearch = React.lazy(() => import('./components/PokedexSearch/PokedexSearch'));
 const Results = React.lazy(() => import('./components/PokedexSearch/Results'));
 
 function App() {
@@ -30,11 +30,11 @@ function App() {
   const [dataButtonIsClicked, setDataButtonIsClicked] = useState(false);
 
   const dataButtonHandler = () => {
+    setDataButtonIsClicked((dataButtonIsClicked) => !dataButtonIsClicked);
     setSearchButtonIsClicked(false);
     setIsSearched(false);
     setIsFetchingData(false);
     setEnteredResults([]);
-    setDataButtonIsClicked((dataButtonIsClicked) => !dataButtonIsClicked);
   }
 
   // State to hide or show search menu
@@ -113,8 +113,8 @@ function App() {
           onButtonSearch={searchButtonHandler} 
         />
         <div className={styles.dropDownNavigation}>
-          {dataButtonIsClicked && <PokedexData type1={type1} type2={type2} height={height} weight={weight} />}
-          {searchButtonIsClicked && <PokedexSearch onSearch={enteredSearchHandler}/>}
+          <PokedexData onTransition={dataButtonIsClicked} type1={type1} type2={type2} height={height} weight={weight} />
+          <PokedexSearch onTransition={searchButtonIsClicked} onSearch={enteredSearchHandler}/>
           {isFetchingData && <p>Fetching Data...</p>}
           {isSearched && enteredResults !== 'No Pokemon found. :-(' ? <Results enteredResults={enteredResults}/> : <p>{enteredResults}</p>}
         </div>
