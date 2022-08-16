@@ -6,23 +6,23 @@
     border: 1px dashed var(--card-border-color);
 }
 
-.slide-enter {
+.beforeSlideIn {
     opacity: 0;
     transform: translateY(-100%);
 }
     
-.slide-enter-active {
+.slideIn {
     opacity: 1;
     transform: translateY(0);
     transition: opacity 0.2s, transform 0.2s;
 }
     
-.slide-exit {
+.beforeSlideOut {
     opacity: 1;
     transform: translateY(0);;
 }
     
-.slide-exit-active {
+.slideOut {
     opacity: 0;
     transform: translateY(-100%);
     transition: opacity 0.2s, transform 0.2s;
