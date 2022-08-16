@@ -7,7 +7,7 @@ function Card(props) {
     return (
         <CSSTransition 
             in={props.onTransition}
-            timeout={120} 
+            timeout={200} 
             classNames='slide'
             mountOnEnter
             unmountOnExit
