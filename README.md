@@ -12,7 +12,7 @@ I built the first version of the <a href="https://github.com/wteo/firstGenPokede
 
 The first Pokedex left a lot to be desired. It only has a simple box design featuring the image sprite of a Pokemon and its basic details and it only acts as a list with no search feature or interactivity. In spite of this, it was sufficient at that point in time for me whilst learning and understand the Fetch method.
 
-After I started learning React and felt comfortable enough with the UI Library, I decided to create a more complete and interactive version of the Pokedex. And this is the <a href="https://master--benevolent-chebakia-d0ea73.netlify.app/">result</a>.
+After I started learning React and felt comfortable enough with the UI Library, I decided to create a more complete and interactive version of the Pokedex with the use of states, hooks and Redux. And this is the <a href="https://master--benevolent-chebakia-d0ea73.netlify.app/">result</a>.
 
 <br/>
 <h2>Key Features</h2>
