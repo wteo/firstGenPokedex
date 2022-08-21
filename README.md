@@ -27,7 +27,7 @@ The Pokedex contains two buttons:
 1. The Data Buttton; and
 2. The Search Button.
 
-![image](https://user-images.githubusercontent.com/87306585/185770334-218b7099-ef09-4b80-a79f-fbbab9f843bc.png)
+![image](https://user-images.githubusercontent.com/87306585/185770639-74b21933-5f70-4a81-8dc9-202c4d3ac4ae.png)
 
 <br/>
 <h4>Extracting the Data</h4>
