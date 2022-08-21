@@ -66,9 +66,4 @@ When you select a Pokemon in the search result(s), the Pokedex will automaticall
 I have no intention to commercialize this project. This is a simply a fun app I built in the hopes that it'll also give some entertainment value to users who have nostalgic feel for this franchise. As an added bonus, the project has helped me to familiarize the more advanced concepts of React and Redux.
 
 
-<br/>
-<br/>
-<br/>
-End.
-<br/>
 
