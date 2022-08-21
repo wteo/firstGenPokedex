@@ -52,9 +52,9 @@ Because some Pokemon only have 1 elemental type, the search box allows you to se
 
 The name filter will precede over the type(s) filter. Hence, even if you have selected "Electric" but then decide to enter a Pokemon name, the end results will only show you a list of Pokemon filtered by name.  
 
-When you select a Pokemon in the search result(s), the Pokedex will automatically bring you to that specific Pokemon.
-
 ![image](https://user-images.githubusercontent.com/87306585/185771117-496aec1d-9670-4044-91be-1f00478f726c.png)
+
+When you select a Pokemon in the search result(s), the Pokedex will automatically bring you to that specific Pokemon.
 
 
 <br/>
