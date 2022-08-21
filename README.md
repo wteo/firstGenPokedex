@@ -6,7 +6,7 @@ Pokemon is a popular videogame series featuring fantastical elemental monsters c
 
 I built the first version of the <a href="https://github.com/wteo/firstGenPokedexOld">Pokedex</a> in February 2022 out of vanilla JavaScript.
 
-![image](https://user-images.githubusercontent.com/87306585/185770770-93f7fcc4-71ee-4e49-9aaf-28609ae355c1.png)
+![image](https://user-images.githubusercontent.com/87306585/185771059-c97e03a6-ef65-4df8-ad42-ab542f501fc7.png)
 <br/>
 (A screenshot of the first version of the Pokedex.)
 
