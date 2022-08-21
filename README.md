@@ -19,11 +19,28 @@ After I started learning React and felt comfortable enough with the UI Library, 
 
 <h4>Overall Design</h4>
 
-After learning 
+The app was intentionally designed with a simple restrospective 1990s videogames feel to it. To match with the image sprites found in the API, I pixelated the navigation arrows as well as the font of the Pokemon species name.
 
-With React and Redux, I revised this old Pokedex project (https://github.com/wteo/firstGenPokedexOld) and made it a much more interative and completed app.
+The Pokemon are grouped in the order of their evolutionary lines. They are also listed in the same order as the listing of the official Pokedex. 
 
-Link below: 
+The Pokedex contains two buttons:
+1. The Data Buttton; and
+2. The Search Button.
 
-https://master--benevolent-chebakia-d0ea73.netlify.app/
+![image](https://user-images.githubusercontent.com/87306585/185770334-218b7099-ef09-4b80-a79f-fbbab9f843bc.png)
+
+<br/>
+<h4>Extracting the Data</h4>
+
+When you click on the Data Button, a hidden box will appear that contains some basic data of the current Pokemon. The data I extracted from the API includes each of the Pokemon sprite image, species name, type(s), height and weight. 
+
+![image](https://user-images.githubusercontent.com/87306585/185770428-1c1e29e3-0f9a-44bf-ae2f-d50ec8dc51fd.png)
+
+
+<br/>
+<h4>The Search Engine</h4>
+
+<br/>
+End.
+<br/>
 
