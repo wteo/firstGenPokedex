@@ -14,6 +14,7 @@ The first Pokedex left a lot to be desired. It only has a simple box design feat
 
 After I started learning React and felt comfortable enough with the UI Library, I decided to create a more complete and interactive version of the Pokedex with the use of states, hooks and Redux. And this is the <a href="https://master--benevolent-chebakia-d0ea73.netlify.app/" target="_blank">result</a>.
 
+
 <br/>
 <h2>Key Features</h2>
 
@@ -29,12 +30,14 @@ The Pokedex contains two buttons:
 
 ![image](https://user-images.githubusercontent.com/87306585/185770780-8444d6a3-fc4d-48ba-8232-3bc447308dbf.png)
 
+
 <br/>
 <h4>Extracting the Data</h4>
 
 When you click on the Data Button, a hidden box will appear that contains some basic data of the current Pokemon. The data I extracted from the API includes each of the Pokemon sprite image, species name, type(s), height and weight. 
 
 ![image](https://user-images.githubusercontent.com/87306585/185771315-240b3c0e-ec7e-4504-b009-90192c8977cf.png)
+
 
 <br/>
 <h4>The Search Box</h4>
@@ -57,10 +60,13 @@ When you select a Pokemon in the search result(s), the Pokedex will automaticall
 
 ![image](https://user-images.githubusercontent.com/87306585/185771269-ff4fe0c8-940b-4f28-9a85-2abd0f66c00d.png)
 
+
 <br/>
 <h4>End Words</h4>
 I have no intention to commercialize this project. This is a simply a fun app I built in the hopes that it'll also give some entertainment value to users who have nostalgic feel for this franchise. As an added bonus, the project has helped me to familiarize the more advanced concepts of React and Redux.
 
+
+<br/>
 <br/>
 <br/>
 End.
