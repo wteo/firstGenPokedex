@@ -24,7 +24,7 @@ The app was intentionally designed with a simple restrospective 1990s videogames
 
 The Pokemon are grouped in the order of their evolutionary lines. They are also listed in the same order as the listing of the official Pokedex. 
 
-The Pokedex contains two buttons:
+You can navigate around by clicking on the left or right arrows or use the 2 yellow buttons that contains:
 1. The Data Buttton; and
 2. The Search Button.
 
