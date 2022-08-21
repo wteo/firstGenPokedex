@@ -48,13 +48,13 @@ There are two ways you can search for your Pokemon:
 
 ![image](https://user-images.githubusercontent.com/87306585/185770789-8736e5e9-5793-4a92-b13b-5bb3e7ff65b4.png)
 
-Because some Pokemon only have 1 elemental type, the search box allows you to select only 1 type. Where you want to narrow down your search for Pokemon with dual types, you must first select the first type before selecting the second. Please also note that the search box doesn't allow you to select two of the same types. If you do this (i.e Electric / Electric), this will only generate pop-up warning message. 
+Because some Pokemon only have 1 elemental type, the search box allows you to select only 1 type. Where you want to narrow down your search for Pokemon with dual types, you must first select the first type before selecting the second. Please also note that the search box doesn't allow you to select two of the same types. If you do this (i.e Electric / Electric), this will only generate a pop-up warning message. 
 
 The name filter will precede over the type(s) filter. Hence, even if you have selected "Electric" but then decide to enter a Pokemon name, the end results will only show you a list of Pokemon filtered by name.  
 
 When you select a Pokemon in the search result(s), the Pokedex will automatically bring you to that specific Pokemon.
 
-![image](https://user-images.githubusercontent.com/87306585/185771034-092be566-7646-4042-8189-f3661f0d332c.png)
+![image](https://user-images.githubusercontent.com/87306585/185771117-496aec1d-9670-4044-91be-1f00478f726c.png)
 
 
 <br/>
