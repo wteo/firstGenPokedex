@@ -34,8 +34,7 @@ The Pokedex contains two buttons:
 
 When you click on the Data Button, a hidden box will appear that contains some basic data of the current Pokemon. The data I extracted from the API includes each of the Pokemon sprite image, species name, type(s), height and weight. 
 
-![image](https://user-images.githubusercontent.com/87306585/185770786-1fe3b3a9-067d-4c2b-9b9a-fa654c1fa6c0.png)
-
+![image](https://user-images.githubusercontent.com/87306585/185771315-240b3c0e-ec7e-4504-b009-90192c8977cf.png)
 
 <br/>
 <h4>The Search Box</h4>
