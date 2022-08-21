@@ -7,6 +7,7 @@ Pokemon is a popular videogame series featuring fantastical elemental monsters c
 I built the first version of the <a href="https://github.com/wteo/firstGenPokedexOld">Pokedex</a> in February 2022 out of vanilla JavaScript.
 
 ![image](https://user-images.githubusercontent.com/87306585/185770168-837ecfca-2b29-4176-ab84-cc846b561f94.png)
+<br/>
 (A screenshot of the first version of the Pokedex.)
 
 The first Pokedex left a lot to be desired. It only has a simple box design featuring the image sprite of a Pokemon and its basic details and it only acts as a list with no search feature or interactivity. In spite of this, it was sufficient at that point in time for me whilst learning and understand the Fetch method.
