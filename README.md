@@ -6,7 +6,7 @@ Pokemon is a popular videogame series featuring fantastical elemental monsters c
 
 I built the first version of the <a href="https://github.com/wteo/firstGenPokedexOld">Pokedex</a> in February 2022 out of vanilla JavaScript.
 
-![image](https://user-images.githubusercontent.com/87306585/185770692-cb25b8be-a276-4272-9738-1c0ffe22af31.png)
+![image](https://user-images.githubusercontent.com/87306585/185770770-93f7fcc4-71ee-4e49-9aaf-28609ae355c1.png)
 <br/>
 (A screenshot of the first version of the Pokedex.)
 
@@ -27,20 +27,20 @@ The Pokedex contains two buttons:
 1. The Data Buttton; and
 2. The Search Button.
 
-![image](https://user-images.githubusercontent.com/87306585/185770674-7c66852f-9f52-4d1b-91c0-639ebb314777.png)
+![image](https://user-images.githubusercontent.com/87306585/185770780-8444d6a3-fc4d-48ba-8232-3bc447308dbf.png)
 
 <br/>
 <h4>Extracting the Data</h4>
 
 When you click on the Data Button, a hidden box will appear that contains some basic data of the current Pokemon. The data I extracted from the API includes each of the Pokemon sprite image, species name, type(s), height and weight. 
 
-![image](https://user-images.githubusercontent.com/87306585/185770721-79be4a1f-4c41-4ab5-8738-80abdd236f6d.png)
+![image](https://user-images.githubusercontent.com/87306585/185770786-1fe3b3a9-067d-4c2b-9b9a-fa654c1fa6c0.png)
 
 
 <br/>
 <h4>The Search Engine</h4>
 
-![image](https://user-images.githubusercontent.com/87306585/185770752-47f937df-3f43-419a-b85f-1402b57a3e1e.png)
+![image](https://user-images.githubusercontent.com/87306585/185770789-8736e5e9-5793-4a92-b13b-5bb3e7ff65b4.png)
 
 
 <br/>
