@@ -59,7 +59,7 @@ When you select a Pokemon in the search result(s), the Pokedex will automaticall
 ![image](https://user-images.githubusercontent.com/87306585/185771269-ff4fe0c8-940b-4f28-9a85-2abd0f66c00d.png)
 
 <br/>
-<h4>End Words</4>
+<h4>End Words</h4>
 I have no intention to commercialize this project. This is a simply a fun app I built in the hopes that it'll also give some entertainment value to users who have nostalgic feel for this franchise. As an added bonus, the project has helped me to familiarize the more advanced concepts of React and Redux.
 
 <br/>
