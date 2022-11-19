@@ -5,12 +5,12 @@ import styles from './App.module.css';
 
 import PokedexTitle from './components/PokedexTitle';
 import PokedexMain from './components/PokedexMain';
-// import PokedexData from './components/PodedexData';
+// import PokedexData from './components/PokedexData';
 // import PokedexSearch from './components/PokedexSearch/PokedexSearch';
 import { fetchData } from './store/fetchData';
 
 const Results = React.lazy(() => import('./components/PokedexSearch/Results'));
-const PokedexData = React.lazy(() => import('./components/PodedexData'));
+const PokedexData = React.lazy(() => import('./components/PokedexData'));
 const PokedexSearch = React.lazy(() => import('./components/PokedexSearch/PokedexSearch'));
 
 function App() {
