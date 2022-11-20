@@ -5,10 +5,18 @@ import store from '../../store/index'
 
 import Results from './Results';
 
+const MockProvider = (props) => {
+    return (
+        <Provider store={store}>
+            {props.children}
+        </Provider>
+    );
+}
+
 describe('Results Component', () => {
 
     test('Renders "result" as Text', () => {
-        render(<Provider store={store}><Results enteredResults={[]} /></Provider>);
+        render(<MockProvider><Results enteredResults={[]} /></MockProvider>);
         const result = screen.getByText(/result/i);
         expect(result).toBeVisible();
     });   
