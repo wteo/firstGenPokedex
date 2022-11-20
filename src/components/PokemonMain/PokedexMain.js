@@ -30,7 +30,7 @@ function PokedexMain(props) {
     );
 
     const rightArrowButton = (
-        <button className={styles.rightButton} onClick={incrementHandler}>
+        <button aria-label='right' className={styles.rightButton} onClick={incrementHandler}>
             <img src={rightArrow} alt='rightArrow'/>
         </button>
     );
