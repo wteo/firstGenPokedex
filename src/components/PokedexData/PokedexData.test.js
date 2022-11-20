@@ -14,13 +14,13 @@ describe('PokedexData Component', () => {
     test('Renders Pokemon with only 1 "Type" ', () => {
         render(<PokedexData onTransition={true} type1='grass' />);
         const type = screen.getByText(/type/i);
-        expect(type).toBeInTheDocument();
+        expect(type).toBeVisible();
     });
 
     test('Renders Pokemon with 2 "Types" ', () => {
         render(<PokedexData onTransition={true} type1='grass' type2='poison' />);
         const type2 = screen.getByText(/type/i);
-        expect(type2).toBeInTheDocument();
+        expect(type2).toBeVisible();
     });
 
 });

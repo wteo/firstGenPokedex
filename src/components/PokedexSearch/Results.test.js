@@ -10,7 +10,7 @@ describe('Results Component', () => {
     test('Renders "result" as Text', () => {
         render(<Provider store={store}><Results enteredResults={[]} /></Provider>);
         const result = screen.getByText(/result/i);
-        expect(result).toBeInTheDocument();
+        expect(result).toBeVisible();
     });   
 
 });
