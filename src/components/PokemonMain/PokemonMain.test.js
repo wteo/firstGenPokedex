@@ -44,5 +44,14 @@ describe('PokedexMain Component', () => {
         expect(allButtons).toBe(3);
     }); 
 
+    test('Renders all Buttons at the Second Last Pokemon', () => {
+        render(<MockMainProvider />);
+        const leftButton = screen.getByRole('button', { name: /left/i});
+        fireEvent.click(leftButton);
+        const allButtons = screen.getAllByRole('button').length;
+        expect(allButtons).toBe(4);
+        
+    });
+
 });
 

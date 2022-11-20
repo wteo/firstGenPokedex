@@ -18,7 +18,7 @@ function Results(props) {
             <div className={styles.resultsContainer}>
                 {
                 props.enteredResults.map(result => (
-                    <div className={styles.result} key={result.id} onClick={selectPokemonHandler}>
+                    <div title='listed' className={styles.result} key={result.id} onClick={selectPokemonHandler}>
                         <img src={result.imageLink} id={result.id} alt={result.speciesNameResult}/>
                         <p>{result.speciesNameResult}</p>
                     </div>

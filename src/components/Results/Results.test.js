@@ -21,4 +21,21 @@ describe('Results Component', () => {
         expect(result).toBeVisible();
     });   
 
+    const MockArr = [{ 
+        id: 1, 
+        speciesNameResult: 'bulbasaur' 
+    },{ 
+        id: 2, 
+        speciesNameResult: 'ivysaur'  
+    }, { 
+        id: 3, 
+        speciesNameResult: 'venusaur' 
+    }];  
+
+    test('Renders found Pokemon via Search', () => {
+        render(<MockProvider><Results enteredResults={MockArr} /></MockProvider>);
+        const listedPokemon = screen.getAllByTitle('listed');
+        expect(listedPokemon.length).toBe(3);
+    });
+
 });

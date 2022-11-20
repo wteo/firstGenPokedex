@@ -24,7 +24,7 @@ function PokedexMain(props) {
 
 
     const leftArrowButton = (
-        <button className={styles.leftButton} onClick={decrementHandler}>
+        <button aria-label='left' className={styles.leftButton} onClick={decrementHandler}>
             <img src={leftArrow} alt='leftArrow'/>
         </button>
     );
