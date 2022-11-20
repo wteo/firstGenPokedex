@@ -10,5 +10,17 @@ describe('PokedexData Component', () => {
         const data = screen.getByTitle('data');
         expect(data).toBeInTheDocument();
     });
-    
+
+    test('Renders Pokemon with only 1 "Type" ', () => {
+        render(<PokedexData onTransition={true} type1='grass' />);
+        const type = screen.getByText(/type/i);
+        expect(type).toBeInTheDocument();
+    });
+
+    test('Renders Pokemon with 2 "Types" ', () => {
+        render(<PokedexData onTransition={true} type1='grass' type2='poison' />);
+        const type2 = screen.getByText(/type/i);
+        expect(type2).toBeInTheDocument();
+    });
+
 });
