@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './PokedexData.module.css';
-import Card from '../UI/Card';
+import Card from '../../UI/Card';
 
 function PokedexData(props) {
 
@@ -9,7 +9,7 @@ function PokedexData(props) {
   const hasTwoTypes = <p className={styles.type}>Type(s): {props.type1} / {props.type2}</p>;
 
   return (
-    <Card onTransition={props.onTransition}>
+    <Card onTransition={props.onTransition} title='data'>
       {props.type2 === undefined ? hasOnlyOneType : hasTwoTypes }
       <p>Height: {`${(props.height / 10).toFixed(1)}`} M</p>
       <p>Weight: {`${(props.weight / 10).toFixed(1)}`} Kg</p>
