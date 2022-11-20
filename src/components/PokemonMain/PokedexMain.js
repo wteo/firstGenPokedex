@@ -2,11 +2,11 @@ import React  from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import styles from './PokedexMain.module.css';
-import rightArrow from '../icons/right-arrow.png';
-import leftArrow from '../icons/left-arrow.png';
-import question from '../icons/question.png';
-import search from '../icons/search.png';
-import { counterActions } from '../store/index';
+import rightArrow from '../../icons/right-arrow.png';
+import leftArrow from '../../icons/left-arrow.png';
+import question from '../../icons/question.png';
+import search from '../../icons/search.png';
+import { counterActions } from '../../store/index';
 
 function PokedexMain(props) {
 

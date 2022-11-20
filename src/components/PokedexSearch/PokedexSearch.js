@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Card from '../../UI/Card';
-import PokedexSearchOptions, { types } from './PokemonSeachOptions';
+import PokedexSearchOptions, { types } from './PokedexSearchOptions';
 
 import styles from './PokedexSearch.module.css';
 

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import styles from './App.module.css';
 
 import PokedexTitle from './components/PokedexTitle/PokedexTitle';
-import PokedexMain from './components/PokedexMain';
+import PokedexMain from './components/PokemonMain/PokedexMain';
 // import PokedexData from './components/PokedexData';
 // import PokedexSearch from './components/PokedexSearch/PokedexSearch';
 import { fetchData } from './store/fetchData';
