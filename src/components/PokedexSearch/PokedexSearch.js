@@ -47,7 +47,7 @@ function PokedexSearch(props) {
 
 
   return (
-    <Card onTransition={props.onTransition}>
+    <Card onTransition={props.onTransition} title='search'>
       <form onSubmit={submitHandler}>
         <p>Search Pokemon by their type(s).</p>
         <div className={styles.typesList}>
