@@ -9,7 +9,7 @@ import PokedexMain from './components/PokemonMain/PokedexMain';
 // import PokedexSearch from './components/PokedexSearch/PokedexSearch';
 import { fetchData } from './store/fetchData';
 
-const Results = React.lazy(() => import('./components/PokedexSearch/Results'));
+const Results = React.lazy(() => import('./components/Results/Results'));
 const PokedexData = React.lazy(() => import('./components/PokedexData/PokedexData'));
 const PokedexSearch = React.lazy(() => import('./components/PokedexSearch/PokedexSearch'));
 
