@@ -48,7 +48,7 @@ function PokedexSearch(props) {
 
   return (
     <Card onTransition={props.onTransition} title='search'>
-      <form onSubmit={submitHandler}>
+      <form aria-label='form-submit' onSubmit={submitHandler}>
         <p>Search Pokemon by their type(s).</p>
         <div className={styles.typesList}>
           <PokedexSearchOptions 

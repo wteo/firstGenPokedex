@@ -46,10 +46,10 @@ function PokedexMain(props) {
                 <div></div>
             </div>
             <div className={styles.pokedexButtons}>
-                <button onClick={props.onButtonData}>
+                <button aria-label='data' onClick={props.onButtonData}>
                     <img src={question} alt='questionButton' />
                 </button>
-                <button onClick={props.onButtonSearch}>
+                <button aria-label='search' onClick={props.onButtonSearch}>
                     <img src={search} alt='searchButton' />
                 </button>
             </div>
