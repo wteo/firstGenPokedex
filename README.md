@@ -8,7 +8,7 @@ I built the first version of the <a href="https://github.com/wteo/firstGenPokede
 
 ![image](https://user-images.githubusercontent.com/87306585/185771075-963d7881-050b-4f71-8590-93f1107f68e6.png)
 <br/>
-(A screenshot of the first version of the Pokedex.)
+(A screenshot of the first version of the Pokedex.) 
 
 The first Pokedex left a lot to be desired. It only has a simple box design featuring the image sprite of a Pokemon and its basic details and it only acts as a list with no search feature or interactivity. In spite of this, it was sufficient at that point in time for me whilst learning and understand the Fetch method.
 
@@ -64,7 +64,7 @@ When you select a Pokemon in the search result(s), the Pokedex will automaticall
 <br/>
 <h4>End Words</h4>
 
-I have no intention to commercialize this project. This is a simply a fun app I built in the hopes that it'll also give some entertainment value to users who have nostalgic feel for this franchise. As an added bonus, the project has helped me to familiarize the more advanced concepts of React and Redux.
+I have no intention to commercialize this project. This is a simply a fun app I built in the hopes that it'll also give some entertainment value to users who have nostalgic feel for this franchise. As an added bonus, the project has helped me to familiarize the more advanced concepts of React and Redux. 
 
 
 
