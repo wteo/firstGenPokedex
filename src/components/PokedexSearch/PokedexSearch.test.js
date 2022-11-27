@@ -4,9 +4,11 @@ import PokedexSearch from './PokedexSearch';
 
 describe('PokedexSearch Component', () => {
     test('Renders "search" as Title', () => {
-        render(<PokedexSearch />);
+        render(<PokedexSearch />); 
         const search = screen.getByTitle('search');
-        expect(search).toBeInTheDocument();
+        expect(search).toBeInTheDocument(); 
     });
+
+
 });
 

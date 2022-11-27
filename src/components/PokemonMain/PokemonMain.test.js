@@ -15,10 +15,10 @@ const MockMainProvider = () => {
 describe('PokedexMain Component', () => {
 
     test('Renders all Buttons starting from the First Pokemon', () => {
-        render(<MockMainProvider />);
-        const button = screen.getAllByRole('button').length;
-        expect(button).toBe(3);
-    });
+        render(<MockMainProvider />); // Arrange
+        const button = screen.getAllByRole('button').length; // Act
+        expect(button).toBe(3); // Assert
+    }); // result - 3, expected 3
 
     let count = 0;
     

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom'
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from 'react-redux';
 import store from './store/index'
 
@@ -31,17 +31,16 @@ describe('App Component', () => {
         expect(typeText.length).toBe(3);
     })
 
-    test('Searching via selecting only 1 type', async() => {
+    test('Renders Fetching Data status', () => {
         render(<MockAppProvider />);
-        const searchButton = await screen.findByRole('button', { name: /search/i });
+        const searchButton = screen.getByRole('button', { name: /search/i });
         fireEvent.click(searchButton);
-        const type1 = await screen.findByText(/First Type:/i);
+        const type1 = screen.getByText(/First Type:/i);
         fireEvent.change(type1, { target: { name: 'Fire'}});
-        const form = await screen.findByRole('form');
+        const form = screen.getByRole('form');
         fireEvent.submit(form);
-        // const searchedPokemon = await screen.findByText(/charmander/i);
-        const searchedPokemon = await screen.findByText(/fetching/i);
-        await waitFor(() => expect(searchedPokemon).toBeInTheDocument());
+        const searchedPokemon = screen.getByText(/fetching/i);
+        expect(searchedPokemon).toBeInTheDocument();
     })
 
 });
