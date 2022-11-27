@@ -15,7 +15,7 @@ function Results(props) {
     return (
         <>
             <h3 className={styles.resultTitle}>Result(s):</h3>
-            <div className={styles.resultsContainer}>
+            <div className={styles.resultsContainer} >
                 {
                 props.enteredResults.map(result => (
                     <div title='listed' className={styles.result} key={result.id} onClick={selectPokemonHandler}>

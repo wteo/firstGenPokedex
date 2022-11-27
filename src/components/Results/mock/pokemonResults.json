@@ -1,0 +1,16 @@
+{
+    "results": [{
+        "id": 1,
+        "imageLink": "./images/bulbasaur.png",
+        "speciesNameResult": "bulbasaur"
+    },{
+        "id": "2",
+        "imageLink": "./images/ivysaur.png",
+        "speciesNameResult": "ivysaur"
+    },{
+        "id": "3",
+        "imageLink": "./images/venusaur.png",
+        "speciesNameResult": "venusaur"
+    }]
+}
+

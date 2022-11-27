@@ -8,10 +8,10 @@ import Results from './Results';
 const results = [];
 
 const fetchData =  async(i) => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    const url = './mock/pokemonResults.json';
     const response = await fetch(url);
     const data = await response.json();
-    return data;
+    return data.results[i];
 };
 
 const MockResultProvider = () => {
@@ -30,13 +30,20 @@ describe('Results Component', () => {
         expect(resultText).toBeInTheDocument();
     });   
 
+    test('Renders Pokemon via Fetching Data from Mock Pokemon API', () => {
+        results.push(fetchData(1));
+        render(<MockResultProvider />);
+        const listedPokemon = screen.getAllByTitle('listed');
+        expect(listedPokemon.length).toBe(1);
+    })
+
   
-    test('Renders found Pokemon via Fetching Data from Pokemon API', () => {
+    test('Renders Pokemon via Fetching Data from Mock Pokemon API', () => {
+        results.pop();
         let i = 0;
         while (i < 3) {
-            const data = fetchData(i);
-            results.push({ id: i, speciesNameResult: data.name });
-            i++
+            results.push(fetchData(i));
+            i++;
         }
         render(<MockResultProvider />);
         const listedPokemon = screen.getAllByTitle('listed');
@@ -44,25 +51,3 @@ describe('Results Component', () => {
     })
     
 });
-
-
-  /*
-    const MockArr = [{ 
-        id: 1, 
-        speciesNameResult: 'bulbasaur' 
-    },{ 
-        id: 2, 
-        speciesNameResult: 'ivysaur'  
-    }, { 
-        id: 3, 
-        speciesNameResult: 'venusaur' 
-    }];  
-    
-
-    test('Renders found Pokemon via Search', () => {
-        render(<MockResultProvider />);
-        const listedPokemon = screen.getAllByTitle('listed');
-        expect(listedPokemon.length).toBe(3);
-    });
-
-    */
