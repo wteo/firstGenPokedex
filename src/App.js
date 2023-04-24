@@ -114,7 +114,7 @@ function App() {
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 12;
+  const resultsPerPage = 8;
   
   // Get current posts
   const indexOfLastResult = currentPage * resultsPerPage;
@@ -140,7 +140,11 @@ function App() {
           {isFetchingData && <p>Fetching Data...</p>}
           {isSearched && enteredResults !== 'No Pokemon found. :-(' ? <Results currentResults={currentResults} totalResults={enteredResults} /> : <p>{enteredResults}</p>}
           { isSearched && enteredResults.length > 12 && enteredResults !== 'No Pokemon found. :-(' &&
-            <Pagination resultsPerPage={resultsPerPage} totalResults={enteredResults.length} paginate={paginate} /> 
+            <Pagination 
+              resultsPerPage={resultsPerPage} 
+              totalResults={enteredResults.length} 
+              paginate={paginate} 
+            /> 
             }
         </div>
       </Suspense>
