@@ -11,6 +11,10 @@
     --border-background-color: rgb(189, 189, 189);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: rgb(255, 255, 255);
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
