@@ -10,13 +10,18 @@ function Pagination({ resultsPerPage, totalResults, paginate }) {
     pageNumbers.push(i);
   }
 
+  const handleClick = (number, event) => {
+    event.preventDefault(); 
+    paginate(number);
+  };
+
   return ( 
     <nav>
       <ul className={styles.pagination}>
         { pageNumbers.map(number => (
-            <li key={number}>
-              <a onClick={() => paginate(number)} href="!#" >{number}</a>
-            </li>
+            <a onClick={(event) => handleClick(number, event)} href="#!">
+              <li key={number}>{number}</li>
+            </a>
           ))}
       </ul>
     </nav>
