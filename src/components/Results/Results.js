@@ -14,17 +14,17 @@ function Results(props) {
 
     return (
         <>
-            <h3 className={styles.resultTitle}>{props.totalResults.length} Result(s):</h3>
-            <div className={styles.resultsContainer} >
-                {
-                props.currentResults.map(result => (
-                    <div title='listed' className={styles.result} key={result.id} onClick={selectPokemonHandler}>
-                        <img src={result.imageLink} id={result.id} alt={result.speciesNameResult}/>
-                        <p>{result.speciesNameResult}</p>
-                    </div>
-                      )
-                    )
-                }
+            <h3 className={styles.resultTitle}>Showing {props.currentResults.length} of {props.totalResults.length} Result(s):</h3>
+                <div className={styles.resultsContainer} >
+                    {
+                    props.currentResults.map(result => (
+                        <a href="#main-pokedex">
+                            <div title='listed' className={styles.result} key={result.id} onClick={selectPokemonHandler}>
+                                <img src={result.imageLink} id={result.id} alt={result.speciesNameResult}/>
+                                <p>{result.speciesNameResult}</p>
+                            </div>
+                        </a>
+                    ))}
             </div>
         </>
     );

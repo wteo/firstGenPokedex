@@ -39,7 +39,7 @@ function PokedexMain(props) {
         <div className={styles.pokedexMain}>
             <div className={styles.pokedexImage}>
                 { count > 1 ? leftArrowButton : <div></div> }
-                <img src={props.imageLink} alt={props.speciesName} />
+                <img id="main-pokedex" src={props.imageLink} alt={props.speciesName} />
                 { count < 151 ? rightArrowButton : <div></div> }
                 <div></div>
                 <h3 className={styles.pokemonName}>{props.speciesName}</h3>
