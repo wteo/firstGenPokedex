@@ -9,6 +9,8 @@ import PokedexData from './components/PokedexData/PokedexData';
 import PokedexSearch from './components/PokedexSearch/PokedexSearch';
 import Results from './components/Results/Results';
 
+import Pagination from './UI/Pagination';
+
 import { fetchData } from './store/fetchData';
 
 // const Results = React.lazy(() => import('./components/Results/Results'));
@@ -39,6 +41,7 @@ function App() {
     setIsSearched(false);
     setIsFetchingData(false);
     setEnteredResults([]);
+    setCurrentPage(1);
   }
 
   // State to hide or show search menu
@@ -49,6 +52,7 @@ function App() {
     setIsSearched(false);
     setIsFetchingData(false);
     setEnteredResults([]);
+    setCurrentPage(1);
     setSearchButtonIsClicked((searchButtonIsClicked) => !searchButtonIsClicked);
   }
 
@@ -98,13 +102,27 @@ function App() {
     if (resultsArr.length > 0) {
       setIsSearched(true);    
       setEnteredResults(resultsArr);
+      setCurrentPage(1);
       setIsFetchingData(false);
     } else {
       setIsSearched(true);
       setEnteredResults('No Pokemon found. :-(');
+      setCurrentPage(1);
       setIsFetchingData(false);
     }
   };
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const resultsPerPage = 12;
+  
+  // Get current posts
+  const indexOfLastResult = currentPage * resultsPerPage;
+  const indexOfFirstResult = indexOfLastResult - resultsPerPage;
+  const currentResults = enteredResults.slice(indexOfFirstResult, indexOfLastResult);
+  
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className={styles.container}>
@@ -120,10 +138,13 @@ function App() {
           <PokedexData onTransition={dataButtonIsClicked} type1={type1} type2={type2} height={height} weight={weight} />
           <PokedexSearch onTransition={searchButtonIsClicked} onSearch={enteredSearchHandler}/>
           {isFetchingData && <p>Fetching Data...</p>}
-          {isSearched && enteredResults !== 'No Pokemon found. :-(' ? <Results enteredResults={enteredResults}/> : <p>{enteredResults}</p>}
+          {isSearched && enteredResults !== 'No Pokemon found. :-(' ? <Results currentResults={currentResults} totalResults={enteredResults} /> : <p>{enteredResults}</p>}
+          { isSearched && enteredResults.length > 12 && enteredResults !== 'No Pokemon found. :-(' &&
+            <Pagination resultsPerPage={resultsPerPage} totalResults={enteredResults.length} paginate={paginate} /> 
+            }
         </div>
       </Suspense>
-      <footer>© Wendy Teo 2022</footer>
+      <footer>© Wendy Teo 2023</footer>
     </div>
   );
 }
