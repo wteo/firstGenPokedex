@@ -66,19 +66,15 @@ function App() {
       species     : userInput.species
     }
 
-    let i = 1;
-
-    while (i <= 151) {
-      const url = `https://pokeapi.co/api/v2/pokemon/${i}`
-      const response = await fetch(url);
+    for (let i = 1; i <= 151; i++) {
+      
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
       const data = await response.json();
       const species = data.name;
       const id = data.id;
       const image = data.sprites.front_default;
       const type1 = data.types[0].type.name;
       const type2 = data.types[1]?.type.name;
-
-      i++;
 
       if (filters.species !== '' && species.includes(filters.species.toLowerCase().trim())) {
         foundPokemon.push({species, image, id});
