@@ -66,34 +66,44 @@ function App() {
       species     : userInput.species
     }
 
-    for (let i = 1; i <= 151; i++) {
-      
-      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
-      const data = await response.json();
-      const species = data.name;
-      const id = data.id;
-      const image = data.sprites.front_default;
-      const type1 = data.types[0].type.name;
-      const type2 = data.types[1]?.type.name;
+    try {
 
-      if (filters.species !== '' && species.includes(filters.species.toLowerCase().trim())) {
-        foundPokemon.push({species, image, id});
-      } 
-      
-      if (filters.species === '') {
-        if (filters.type1 === type1 && filters.type2 === type2) {
+      for (let i = 1; i <= 151; i++) {
+        
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+        if (!response.ok) throw new Error(`Failed to fetch data.`);
+        const data = await response.json();
+        const species = data.name;
+        const id = data.id;
+        const image = data.sprites.front_default;
+        const type1 = data.types[0].type.name;
+        const type2 = data.types[1]?.type.name;
+
+        if (filters.species !== '' && species.includes(filters.species.toLowerCase().trim())) {
           foundPokemon.push({species, image, id});
-        } else if ((filters.type1 === type1 || filters.type1 === type2) && filters.type2 === 'None') {
-          foundPokemon.push({species, image, id});
-        } else if (filters.type1 === 'None') {
-          alert ('You must either first enter a value for first type or enter a value for species name.');
-          setIsDataFetched(false);
-          return;
         } 
+        
+        if (filters.species === '') {
+          if (filters.type1 === type1 && filters.type2 === type2) {
+            foundPokemon.push({species, image, id});
+          } else if ((filters.type1 === type1 || filters.type1 === type2) && filters.type2 === 'None') {
+            foundPokemon.push({species, image, id});
+          } else if (filters.type1 === 'None') {
+            alert ('You must either first enter a value for first type or enter a value for species name.');
+            setIsDataFetched(false);
+            return;
+          } 
+        }
+        
       }
+
+      foundPokemon.length > 0 ? setResults(foundPokemon) : setResults('No Pokemon found. :-(');
+
+    } catch (error) {
+      setResults('An error occurred while fetching data. Please try again');
+      setIsDataFetched(false);
+      return;
     }
-    
-    foundPokemon.length > 0 ? setResults(foundPokemon) : setResults('No Pokemon found. :-(');
 
     setIsSearched(true);
     setCurrentPage(1);
