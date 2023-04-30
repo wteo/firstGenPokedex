@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import styles from './Pokedex.module.css';
 import right from '../../icons/right-arrow.png';
 import left from '../../icons/left-arrow.png';
-import question from '../../icons/question.png';
 import search from '../../icons/search.png';
 import { counterActions } from '../../store/index';
 
@@ -34,21 +33,26 @@ function Pokedex(props) {
             <img src={right} alt='right arrow button'/>
         </button>
     );
+
+    const typeOne = <p className={styles.type}>Type(s): {props.type1}</p>;
+    const typeOneAndTwo = <p className={styles.type}>Type(s): {props.type1} / {props.type2}</p>;
         
     return (
         <div className={styles.pokedex}>
             <div className={styles.pokedexImage}>
                 { count > 1 ? leftButton : <div></div> }
-                <img id="main-pokedex" src={props.image} alt={props.species} />
+                <div className={styles.innerContainer}>
+                    <img id="main-pokedex" src={props.image} alt={props.species} />
+                    <div className={styles.data}>
+                        <h2>{props.species}</h2>
+                        {props.type2 === undefined ? typeOne : typeOneAndTwo }
+                        <p>Height: {`${(props.height / 10).toFixed(1)}`} M</p>
+                        <p>Weight: {`${(props.weight / 10).toFixed(1)}`} Kg</p>
+                    </div>
+                </div>
                 { count < 151 ? rightButton : <div></div> }
-                <div></div>
-                <h3 className={styles.pokemonName}>{props.species}</h3>
-                <div></div>
             </div>
             <div className={styles.pokedexButtons}>
-                <button aria-label='data' onClick={props.onButtonData}>
-                    <img src={question} alt='questionButton' />
-                </button>
                 <button aria-label='search' onClick={props.onButtonSearch}>
                     <img src={search} alt='searchButton' />
                 </button>
