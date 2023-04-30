@@ -1,6 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/common-pixel');
 
-.pokedexMain {
+.pokedex {
     background-color: var(--pokedex-main-color);
     padding: 3.5%;
     border-radius: 5%;

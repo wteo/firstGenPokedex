@@ -1,14 +1,14 @@
 import React  from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import styles from './PokedexMain.module.css';
-import rightArrow from '../../icons/right-arrow.png';
-import leftArrow from '../../icons/left-arrow.png';
+import styles from './Pokedex.module.css';
+import right from '../../icons/right-arrow.png';
+import left from '../../icons/left-arrow.png';
 import question from '../../icons/question.png';
 import search from '../../icons/search.png';
 import { counterActions } from '../../store/index';
 
-function PokedexMain(props) {
+function Pokedex(props) {
 
     const count = useSelector(state => state.count);
     const dispatch = useDispatch();
@@ -23,26 +23,26 @@ function PokedexMain(props) {
     };
 
 
-    const leftArrowButton = (
+    const leftButton = (
         <button aria-label='left' className={styles.leftButton} onClick={decrementHandler}>
-            <img src={leftArrow} alt='leftArrow'/>
+            <img src={left} alt='left arrow button'/>
         </button>
     );
 
-    const rightArrowButton = (
+    const rightButton = (
         <button aria-label='right' className={styles.rightButton} onClick={incrementHandler}>
-            <img src={rightArrow} alt='rightArrow'/>
+            <img src={right} alt='right arrow button'/>
         </button>
     );
         
     return (
-        <div className={styles.pokedexMain}>
+        <div className={styles.pokedex}>
             <div className={styles.pokedexImage}>
-                { count > 1 ? leftArrowButton : <div></div> }
-                <img id="main-pokedex" src={props.imageLink} alt={props.speciesName} />
-                { count < 151 ? rightArrowButton : <div></div> }
+                { count > 1 ? leftButton : <div></div> }
+                <img id="main-pokedex" src={props.image} alt={props.species} />
+                { count < 151 ? rightButton : <div></div> }
                 <div></div>
-                <h3 className={styles.pokemonName}>{props.speciesName}</h3>
+                <h3 className={styles.pokemonName}>{props.species}</h3>
                 <div></div>
             </div>
             <div className={styles.pokedexButtons}>
@@ -57,4 +57,4 @@ function PokedexMain(props) {
     );
 }
 
-export default React.memo(PokedexMain);
+export default Pokedex;

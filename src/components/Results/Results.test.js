@@ -17,10 +17,11 @@ const fetchData =  async(i) => {
 const MockResultProvider = () => {
     return (
         <Provider store={store}>
-            <Results enteredResults={results} />
+            <Results results={results} />
         </Provider>
     );
 }
+
 
 describe('Results Component', () => {
 
