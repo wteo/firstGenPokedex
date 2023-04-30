@@ -5,7 +5,6 @@ import styles from './App.module.css';
 
 import Title from './components/Title/Title';
 import Pokedex from './components/Pokedex/Pokedex';
-import Data from './components/Data/Data';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
 
@@ -26,24 +25,11 @@ function App() {
   useEffect(() => {
     fetchData(setPokemonData, url);
   }, [url]);
-  
-  // State to hide or show pokemon data
-  const [dataButtonIsClicked, setDataButtonIsClicked] = useState(false);
-
-  const dataButtonHandler = () => {
-    setDataButtonIsClicked((dataButtonIsClicked) => !dataButtonIsClicked);
-    setSearchButtonIsClicked(false);
-    setIsSearched(false);
-    setIsDataFetched(false);
-    setResults([]);
-    setCurrentPage(1);
-  }
 
   // State to hide or show search menu
   const [searchButtonIsClicked, setSearchButtonIsClicked] = useState(false);
 
   const searchButtonHandler = () => {
-    setDataButtonIsClicked(false);
     setIsSearched(false);
     setIsDataFetched(false);
     setResults([]);
@@ -129,11 +115,13 @@ function App() {
         <Pokedex 
           image={image} 
           species={species} 
-          onButtonData={dataButtonHandler} 
-          onButtonSearch={searchButtonHandler} 
+          onButtonSearch={searchButtonHandler}
+          type1={type1}
+          type2={type2}
+          height={height}
+          weight={weight}
         />
         <div className={styles.dropDownNavigation}>
-          <Data onTransition={dataButtonIsClicked} type1={type1} type2={type2} height={height} weight={weight} />
           <Search onTransition={searchButtonIsClicked} onSearch={enteredSearchHandler}/>
           {isDataFetched && <p>Fetching Data...</p>}
           {isSearched && results !== 'No Pokemon found. :-(' ? <Results currentResults={currentResults} totalResults={results} /> : <p>{results}</p>}
