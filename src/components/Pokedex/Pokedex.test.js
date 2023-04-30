@@ -1,18 +1,18 @@
 import '@testing-library/jest-dom'
 import { render, screen, fireEvent } from "@testing-library/react";
-import PokedexMain from './PokedexMain';
+import Pokedex from './Pokedex';
 import { Provider } from 'react-redux';
 import store from '../../store/index'
 
 const MockMainProvider = () => {
     return (
         <Provider store={store}>
-            <PokedexMain />
+            <Pokedex />
         </Provider>
     );
 }
 
-describe('PokedexMain Component', () => {
+describe('Pokedex Component', () => {
 
     test('Renders all Buttons starting from the First Pokemon', () => {
         render(<MockMainProvider />); // Arrange

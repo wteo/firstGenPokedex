@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom'
 import { render, screen } from "@testing-library/react";
-import PokedexSearch from './PokedexSearch';
+import Search from './Search';
 
-describe('PokedexSearch Component', () => {
+describe('Search Component', () => {
     test('Renders "search" as Title', () => {
-        render(<PokedexSearch />); 
+        render(<Search />); 
         const search = screen.getByTitle('search');
         expect(search).toBeInTheDocument(); 
     });

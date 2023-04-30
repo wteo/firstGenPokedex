@@ -1,17 +1,17 @@
 import '@testing-library/jest-dom'
 import { render, screen } from "@testing-library/react";
-import PokedexSearchOptions from './PokedexSearchOptions';
+import Options from './Options';
 
-describe('PokedexSearchOptions Component', () => {
+describe('Options Component', () => {
 
     test('Renders "First Type" as text', () => {
-        render(<PokedexSearchOptions description='First Type:' />);
+        render(<Options description='First Type:' />);
         const type1 = screen.getByText('First Type:');
         expect(type1).toBeVisible();
     });
 
     test('Renders "Second Type" as text', () => {
-        render(<PokedexSearchOptions description='Second Type:' />);
+        render(<Options description='Second Type:' />);
         const type2 = screen.getByText('Second Type:');
         expect(type2).toBeVisible();
     });

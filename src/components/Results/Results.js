@@ -20,8 +20,8 @@ function Results(props) {
                     props.currentResults.map(result => (
                         <a href="#main-pokedex">
                             <div title='listed' className={styles.result} key={result.id} onClick={selectPokemonHandler}>
-                                <img src={result.imageLink} id={result.id} alt={result.speciesNameResult}/>
-                                <p>{result.speciesNameResult}</p>
+                                <img src={result.image} id={result.id} alt={result.speciesResult}/>
+                                <p>{result.speciesResult}</p>
                             </div>
                         </a>
                     ))}

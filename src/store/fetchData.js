@@ -4,8 +4,8 @@ export const fetchData = async(setState, link) => {
 
     setState({
         id: data.id,
-        imageLink: data.sprites.front_default,
-        speciesName: data.species.name,
+        image: data.sprites.front_default,
+        species: data.species.name,
         type1: data.types[0].type.name,
         type2: data.types[1]?.type.name,
         height: data.height,
