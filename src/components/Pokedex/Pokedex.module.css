@@ -14,31 +14,35 @@
     grid-template-columns: 1fr 4fr 1fr;
     border-radius: 5%;
     border: 1px solid var(--pokedex-border-color);
+    height: 40vh;
 }
 
-.pokedexImage img {
+.pokedexImage .innerContainer {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+}
+
+.pokedexImage img, .pokedexImage .innerContainer img {
     width: 100%;
+    margin: auto 0;
+}
+
+.pokedexImage .innerContainer .data {
+    color: var(--alternate-text-color);
+    text-transform: capitalize;
+    margin: auto 0;
 }
 
 .leftButton, .rightButton {
     height: 100%;
     margin-top: 30%;
-    background-color: var(--background-screen-color);
+    background-color: transparent;
 }
 
 .leftButton:hover, .rightButton:hover {
     margin-top: 10%;
     cursor: pointer;
     transition: margin-top 0.25s;
-}
-
-.pokemonName {
-    text-align: center;
-    color: var(--text-color-pokemon-name);
-    font-family: 'Common Pixel', sans-serif;
-    text-transform: capitalize;                                                
-    margin: auto 0;
-    padding-bottom: 5%;
 }
 
 .pokedexButtons {
