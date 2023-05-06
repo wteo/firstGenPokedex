@@ -39,6 +39,7 @@ function Pokedex(props) {
         
     return (
         <div className={styles.pokedex}>
+            <h4>Nintendo</h4>
             <div className={styles.pokedexImage}>
                 { count > 1 ? leftButton : <div></div> }
                 <div className={styles.innerContainer}>

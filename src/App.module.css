@@ -13,7 +13,7 @@ footer {
 @media (max-width: 1150px) {
     .container {
         margin: 1% 10%;
-        padding: 0%;
+        padding: 0% 5%;
     }
 }
 

@@ -7,6 +7,17 @@
     z-index: 1000;
 }
 
+.pokedex h4 {
+    color: var(--alternate-text-color);
+    border: 3.5px solid var(--alternate-text-color);
+    text-align: center;
+    margin: 0 30% 1rem;
+    padding: 2px 5px;
+    display: block;
+    border-radius: 50px;
+    letter-spacing: 1px;
+}
+
 .pokedexImage {
     display: grid;
     background-color: var(--background-screen-color);
