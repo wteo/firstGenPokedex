@@ -10,17 +10,17 @@ footer {
     text-align: center;
 }
 
-@media (max-width: 1150px) {
+@media only screen and (max-width: 1150px) and (min-width: 779px) {
     .container {
         margin: 1% 10%;
         padding: 0% 5%;
     }
 }
 
-@media (max-width: 778px) {
+@media only screen and (max-width: 778px) {
     .container {
         margin: 1% 5%;
-        padding: 0%;
+        padding: 0% 2.5%;
     }
 }
 
