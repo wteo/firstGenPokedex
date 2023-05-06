@@ -3,10 +3,11 @@
   margin: 3vh 0vw;
   padding: 2vh 1vw;
   transition: all ease-in-out 0.25s;
+  color: var(--main-text-color);
 }
 
 .pagination li:hover {
-  background-color: rgba(0, 0, 255, 0.182);
+  background-color: var(--card-background-color);
   text-decoration: underline;
   cursor: pointer;
   text-decoration: underline;
