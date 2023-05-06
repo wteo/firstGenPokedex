@@ -52,14 +52,14 @@ function Search(props) {
         <h4>Search Pokemon by their type(s).</h4>
         <div className={styles.typesList}>
           <Options 
-            description='First Type:' 
+            description='Primary Type:' 
             id='firstType' 
             onType={selectTypeHandler1} 
             name={selectedType1} 
             value={selectedType1}
           />
           <Options 
-            description='Second Type:' 
+            description='Secondary Type:' 
             id='secondType' 
             onType={selectTypeHandler2} 
             name={selectedType2} 
