@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Title.module.css';
 
-import pokedexLogo from '../../icons/pokedexLogo.webp';
+import pokedexLogo from '../../icons/pokedexLogo2.png';
 
 function Title() {
     return (
