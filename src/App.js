@@ -7,6 +7,7 @@ import Title from './components/Title/Title';
 import Pokedex from './components/Pokedex/Pokedex';
 import Search from './components/Search/Search';
 import Results from './components/Results/Results';
+import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 
 import Pagination from './UI/Pagination';
 
@@ -36,6 +37,14 @@ function App() {
     setCurrentPage(1);
     setSearchButtonIsClicked((searchButtonIsClicked) => !searchButtonIsClicked);
   }
+
+  // States to handle errorMessage
+  const [showError, setShowError] = useState(false);
+
+  const closeErrorHandler = () => {
+    setShowError(false);
+  };
+
 
   // States to handle filtered search
   const [results, setResults] = useState([]);
@@ -75,7 +84,7 @@ function App() {
           } else if ((filters.type1 === type1 || filters.type1 === type2) && filters.type2 === 'None') {
             foundPokemon.push({species, image, id});
           } else if (filters.type1 === 'None') {
-            alert ('You must either first enter a value for first type or enter a value for species name.');
+            setShowError(true);
             setIsDataFetched(false);
             return;
           } 
@@ -98,7 +107,7 @@ function App() {
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 6;
+  const resultsPerPage = 12;
   
   // Get current posts
   const indexOfLastResult = currentPage * resultsPerPage;
@@ -130,9 +139,11 @@ function App() {
             <Pagination 
               resultsPerPage={resultsPerPage} 
               totalResults={results.length} 
-              paginate={paginate} 
+              paginate={paginate}
+              currentPage={currentPage}
             /> 
             }
+          { showError && <ErrorMessage message="Please either select the primary type or enter a value for species name." show={showError} onClose={closeErrorHandler} /> } 
         </div>
       </Suspense>
       <footer>© Wendy Teo 2023</footer>

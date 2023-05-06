@@ -10,7 +10,11 @@
   background-color: var(--card-background-color);
   text-decoration: underline;
   cursor: pointer;
-  text-decoration: underline;
+}
+
+.activePage {
+  background-color: var(--card-background-color);;
+  font-weight: bold;
 }
 
 

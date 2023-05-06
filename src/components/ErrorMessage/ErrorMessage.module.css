@@ -1,0 +1,41 @@
+.errorOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .error {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    text-align: center;
+  }
+  
+  .error button {
+    background-color: var(--buttons-background-color);
+    border-radius: 10%;
+    border: 5px outset var(--buttons-border-color);
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .error button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: var(--input-border-color);
+  }
+  
+  .error button:active {
+    border: 2.5px inset var(--buttons-border-color);
+  }
+  
