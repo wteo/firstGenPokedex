@@ -1,8 +1,9 @@
 .title {
-    width: 80%;
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 .about {
-    padding-top: 5%;
-    padding-bottom: 10%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
 }

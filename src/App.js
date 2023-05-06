@@ -98,7 +98,7 @@ function App() {
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const resultsPerPage = 8;
+  const resultsPerPage = 6;
   
   // Get current posts
   const indexOfLastResult = currentPage * resultsPerPage;
@@ -123,6 +123,7 @@ function App() {
         />
         <div className={styles.dropDownNavigation}>
           <Search onTransition={searchButtonIsClicked} onSearch={enteredSearchHandler}/>
+          <br/>
           {isDataFetched && <p>Fetching Data...</p>}
           {isSearched && results !== 'No Pokemon found. :-(' ? <Results currentResults={currentResults} totalResults={results} /> : <p>{results}</p>}
           { isSearched && results.length > 12 && results !== 'No Pokemon found. :-(' &&

@@ -3,8 +3,6 @@
     flex-direction: column;
     margin: 1% 20%;
     padding: 1% 10%;
-    border-right: 5px dashed var(--border-background-color);
-    border-left: 5px dashed var(--border-background-color);
 }
 
 footer {
@@ -12,15 +10,17 @@ footer {
     text-align: center;
 }
 
-@media (max-width: 1150px) and (min-width: 779px) {
+@media (max-width: 1150px) {
     .container {
         margin: 1% 10%;
+        padding: 0%;
     }
 }
 
 @media (max-width: 778px) {
     .container {
-        margin: 1% 0%;
+        margin: 1% 5%;
+        padding: 0%;
     }
 }
 

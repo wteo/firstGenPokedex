@@ -1,14 +1,16 @@
-* {
-    --pokedex-main-color: rgb(200, 0, 0);
-    --pokedex-border-color: rgb(104, 0, 0);
-    --background-screen-color: rgb(86, 86, 86);
-    --buttons-background-color: rgb(247, 210, 0);
-    --buttons-border-color: rgb(155, 131, 0);
-    --alternate-text-color: rgb(255, 255, 255);
-    --card-border-color: rgb(2, 2, 177);
-    --main-text-color: rgb(2, 2, 177);
-    --card-background-color: rgb(4, 4, 139, 0.2);
-    --border-background-color: rgb(189, 189, 189);
+:root {
+    --main-background-color: #f2f2f2;
+    --pokedex-main-color: #3B3F44;
+    --pokedex-border-color: #0A1931;
+    --background-screen-color: #145e54;
+    --buttons-background-color: #4ECDC4;
+    --buttons-border-color: #319B8C;
+    --alternate-text-color: #FFFFFF;
+    --card-border-color: #6E7C7C;
+    --main-text-color: #0A1931;
+    --card-background-color: rgba(10, 25, 49, 0.1);
+    --border-background-color: #D3D3D3;
+    --input-border-color: #5DA399;
 }
 
 html {
@@ -16,11 +18,64 @@ html {
 }
 
 body {
-    background-color: rgb(255, 255, 255);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: var(--main-background-color);
+    font-family: 'Roboto', sans-serif;
     color: var(--main-text-color);
+    font-size: 18px;
+    line-height: 1.6;
 }
 
 button {
     border: 0px;
 }
+
+h1 {
+    font-size: 2rem; /* 32px */
+    font-weight: 700;
+}
+  
+h2 {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 500;
+}
+  
+h3 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 500;
+}
+  
+h4 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 500;
+}
+  
+p, label, input, select, option, button {
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+}
+  
+
+.resultTitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+  
+.searchButton {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 2% 20%;
+    padding: 2% 10%;
+    border-right: 5px dashed var(--border-background-color);
+    border-left: 5px dashed var(--border-background-color);
+  }
+  
+  @media (max-width: 778px) {
+    body {
+      font-size: 16px;
+    }
+  }

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Options.module.css';
+
 export const types = ['None', 'Normal', 'Fire','Water','Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 
     'Flying', 'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy'];
 

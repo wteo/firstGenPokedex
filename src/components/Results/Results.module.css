@@ -6,9 +6,8 @@
 
 .resultsContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 3%;
-    column-gap: 3%;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
 }
 
 .resultsContainer a {
@@ -36,15 +35,6 @@
 
 .result img {
     width: 100%;
-}
-
-.result p {
-    margin: auto 0;
-    padding: auto 0;
-    text-transform: capitalize;
-    text-align: center;
-    text-decoration: none;
-    color: var(--main-text-color);
 }
 
 

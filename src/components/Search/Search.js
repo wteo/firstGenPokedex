@@ -49,7 +49,7 @@ function Search(props) {
   return (
     <Card onTransition={props.onTransition} title='search'>
       <form aria-label='form-submit' onSubmit={submitHandler}>
-        <p>Search Pokemon by their type(s).</p>
+        <h4>Search Pokemon by their type(s).</h4>
         <div className={styles.typesList}>
           <Options 
             description='First Type:' 
@@ -67,15 +67,17 @@ function Search(props) {
           />
         </div>
         
-        <p>Or by name.</p>
-        <label>Species name:</label>
-        <input 
-          type='text' 
-          placeholder='Enter a pokemon species' 
-          onChange={keySpeciesHandler} 
-          name={keyedSpecies} 
-          value={keyedSpecies}
-        />
+        <h4>Or by name.</h4>
+        <div className={styles.inputContainer}>
+          <label>Species name:</label>
+          <input 
+            type='text' 
+            placeholder='Enter a pokemon species' 
+            onChange={keySpeciesHandler} 
+            name={keyedSpecies} 
+            value={keyedSpecies}
+          />
+      </div>
         <br />
         <button className={styles.searchButton}>Search</button>
       </form>
