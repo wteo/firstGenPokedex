@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Card from '../../UI/Card';
 import Options, { types } from './Options/Options';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 import styles from './Search.module.css';
 
@@ -36,10 +37,17 @@ function Search(props) {
     setKeyedSpecies('');
   };
 
+  // States to handle errorMessage
+  const [showError, setShowError] = useState(false);
+
+  const closeErrorHandler = () => {
+      setShowError(false);
+  };
+
 
   useEffect(() => {
     if (selectedType1 === selectedType2 && selectedType1 !== types[0] && selectedType2 !== types[0]) {
-      alert('Second type cannot be the same as the first type!');
+      setShowError(true);
       setSelectedType2(types[0]);
       return;
     }
@@ -80,6 +88,7 @@ function Search(props) {
       </div>
         <br />
         <button className={styles.searchButton}>Search</button>
+        { showError && <ErrorMessage message="Secondary type cannot be the same as the primary type." show={showError} onClose={closeErrorHandler} /> }
       </form>
     </Card>
   );
